@@ -1,0 +1,367 @@
+<script>
+	import {
+		onMount
+	} from "svelte";
+
+	import {
+        pop
+    } from "svelte-spa-router";
+
+	import Table from "sveltestrap/src/Table.svelte";
+	import Button from "sveltestrap/src/Button.svelte";
+
+
+	import Input from "sveltestrap/src/Input.svelte";
+	import Label from "sveltestrap/src/Label.svelte";
+	import FormGroup from "sveltestrap/src/FormGroup.svelte";
+
+	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
+
+	let mercados = [];
+	let newMercado = {
+		Country: "",
+		Region: "",
+		Population: "",
+		Internet_pop:"",
+		Revenues:""
+	};
+
+	let countries = [];
+	let regions = [];
+	let currentCountry = "-";
+	let currentRegion = "-";
+
+	let numberOfElements = 5;
+	let offset = 0;
+	let currentPage = 1; 
+	let moreData = true; 
+
+	onMount(getMercado);
+	onMount(getCountryRegion);
+
+
+	async function getCountryRegion() {
+		const res = await fetch("/api/v1/mercados"); 
+
+		if (res.ok) {
+			const json = await res.json();
+
+			countries = json.map((d) => {
+					return d.Country;            
+			});
+			countries = Array.from(new Set(countries));   
+			
+			
+			regions = json.map((d) => {   
+					return d.Region;    
+			});
+			regions = Array.from(new Set(regions));      
+
+			console.log("Contados " + countries.length + "paises y " + regions.length + "regiones distintos.");
+
+		} else {
+			errorResponse(res)
+		}
+	}
+
+	
+
+	async function getMercado(){
+
+		console.log("Fetching mercados...");
+		const res = await fetch("/api/v1/mercados?offset=" + numberOfElements * offset + "&limit=" + numberOfElements); 
+
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			mercados = json;
+			console.log("Received " + mercados.length + " mercados.");
+
+			if (mercados.length!=numberOfElements){
+				moreData=false
+			} else{
+
+						const next = await fetch("/api/v1/mercados?offset=" + numberOfElements * (offset+1) + "&limit=" + numberOfElements); 
+						console.log("La variable NEXT tiene el estado: " + next.status)
+						const jsonNext = await next.json();
+						if (jsonNext.length == 0 || next.status==404) {  
+							moreData = false;
+						} 
+						else {
+							moreData = true;  
+						}
+					}
+		} 
+		else {
+			errorResponse(res)
+		}
+	}
+
+	async function ReloadTable() {
+		const res = await fetch("/api/v1/mercados/loadInitialData")
+		responseAlert("Se han recuperado los valores iniciales de la tabla de mercados")
+		location.reload();
+		
+	}
+
+	async function insertMercado() {
+
+		console.log("Inserting mercados..." + JSON.stringify(newMercado));
+
+		if (newMercado.Country == ""
+			|| newMercado.Country == null
+			|| newMercado.Region == "" 
+			|| newMercado.Region == null) {
+			
+			alert("Se debe incluir el nombre del país y la region obligatoriamente");
+		} else {
+				const res = await fetch("/api/v1/mercados", {
+					method: "POST",
+					body: JSON.stringify(newMercado),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}).then(function (res) {
+					if (res.ok){
+						getMercado();
+						responseAlert("Datos de " +newMercado.Country + " añadidos correctamente")
+						location.reload();
+					} else{
+						errorResponse(res)
+					}
+					
+				});
+			}
+	}
+
+
+	async function deleteMercado(Region,Country) {
+		console.log("Deleting mercados..." + JSON.stringify(Region)+ + JSON.stringify(Country) );
+
+		const res = await fetch("/api/v1/mercados/" + Region+"/"+Country, {
+			method: "DELETE"
+		}).then(function (res) {
+			if (res.ok){
+				getMercado();
+				getCountryRegion();
+				responseAlert("El país se ha borrado correctamente")
+			} 
+			else {
+				errorResponse(res);
+			}
+		});
+	}
+
+	async function deleteMercadoCompleto() {
+		console.log("Deleting all mercados data...");
+		const res = await fetch("/api/v1/mercados/", {
+			method: "DELETE"
+		}).then(function (res) {
+			if (res.ok){
+			const json =  res.json();
+			mercados = json;
+			responseAlert("Todos los países se han borrado correctamente")
+		} else{
+			errorResponse(res);
+		}
+		});
+	}
+
+
+	async function search(Region, Country) {
+		console.log("Searching data: " + Region + " and " + Country);
+		var url = "/api/v1/mercados";
+
+		if (Region != "-" && Country != "-") {
+			url = url + "?Region=" + Region + "&Country=" + Country; 
+		} else if (Region != "-" && Country == "-") {
+			url = url + "?Region=" + Region;
+		} else if (Region == "-" && Country != "-") {
+			url = url + "?Country=" + Country;
+		}
+
+		const res = await fetch(url);
+
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			mercados = json;			
+			console.log("Found " + mercados.length + " mercados stats.");
+		
+			if (Region != "-" && Country != "-") {
+				responseAlert("Busqueda de "+ Region+ " en el pais " + Country +" realizada correctamente")  
+		} else if (Region != "-" && Country == "-") {
+				responseAlert("Busqueda de "+ Region  +" realizada correctamente" )  
+		} else if (Region == "-" && Country != "-") {
+				responseAlert("Busqueda en el pais "+ Country+ " realizada correctamente")  
+		}
+		} else {
+			errorResponse(res)
+			console.log("ERROR!");
+		}
+		
+	}
+
+	function addOffset (increment) {
+		offset += increment;
+		currentPage += increment;
+		getMercado();
+	}
+
+
+
+	function responseAlert(msg) {
+		clearAlert();
+		var alert_element = document.getElementById("div_alert");
+		alert_element.style = "position: fixed; top: 0px; top: 1%; width: 90%;";
+		alert_element.className = "alert alert-dismissible in alert-success";
+		alert_element.innerHTML = "<strong>¡Exito!</strong> " + msg;
+		
+		setTimeout(() => {
+			clearAlert();
+		}, 3000);
+	}
+
+	function clearAlert () {
+		var alert_element = document.getElementById("div_alert");
+		alert_element.style = "display: none; ";
+		alert_element.className = "alert alert-dismissible in";
+		alert_element.innerHTML = "";
+	}
+
+function errorResponse(res, msg) {
+	var status = res.status
+	switch (status) {
+		case 400:
+			alert("Codigo de error: " + status + '\n'+ "Los datos introduccidos no son validos");
+			break;
+		case 401:
+			alert("Codigo de error: " + status + '\n'+ "No tiene permisos para realizar esta accion");
+			break;
+		case 404:
+			alert("Codigo de error: " + status + '\n'+ "Página no encontrada");
+			break;
+		case 405:
+			alert("Codigo de error: " + status + '\n'+ "Metodo no permitido");
+			break;
+		case 409:
+			alert("Codigo de error: " + status + '\n'+ "Conflicto con la operacion");
+			break;
+
+		default:
+			if (status!=400 && status!=401 && status!=404 && status!=405  && status!=409  && status!=200  && status!=2001) {
+				alert("Codigo de error: "+ status +'\n'+ "Error de desconocido por el sistema")
+				break;
+
+			}else{
+				break;
+			}
+			
+	}
+}
+
+
+</script>
+
+<main>
+	<div role="alert" id="div_alert" style="display: none;">
+	</div>
+	{#await mercados}
+		Loading mercados...
+	{:then mercados}
+
+		<FormGroup> 
+			<Label for="selectRegion"> Búsqueda por Región </Label>
+			<Input type="select" name="selectRegion" id="selectRegion" bind:value="{currentRegion}">
+				{#each regions as region}
+				<option>{region}</option>
+				{/each}
+				<option>-</option>
+			</Input>
+		</FormGroup>
+				
+		<FormGroup>
+			<Label for="selectCountry"> Busqueda por País </Label>
+			<Input type="select" name="selectCountry" id="selectCountry" bind:value="{currentCountry}">
+				{#each countries as country}
+				<option>{country}</option>
+				{/each}
+				<option>-</option>
+			</Input>
+		</FormGroup>
+
+		<Button outline color="secondary" on:click="{search(currentRegion, currentCountry)}" class="button-search" > <i class="fas fa-search"></i> Buscar </Button>
+		
+
+		<Table bordered>
+			<thead>
+				<tr>
+					<th>Region</th>
+					<th>Pais</th>
+					<th>Poblacion</th>
+					<th>Usuarios en internet</th>
+					<th>Ingresos</th>
+					<th>Acciones</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input  placeholder="Ej. Europe" bind:value="{newMercado.Region}"></td>
+					<td><input  placeholder="Ej. Spain" bind:value="{newMercado.Country}" ></td>
+					<td><input type="number" placeholder="Ej. 1111.11" bind:value="{newMercado.Population}"></td>
+					<td><input type="number" placeholder="Ej. 11.11" bind:value="{newMercado.Internet_pop}"></td>
+					<td><input type="number" placeholder="Ej. 1111.11" bind:value="{newMercado.Revenues}"></td>
+					<td> <Button outline  color="primary" on:click={insertMercado} > Insertar</Button> </td>
+				</tr>
+				{#each mercados as mercados}
+					<tr>
+						<td>
+							<a href="#/mercados/{mercados.Region}/{mercados.Country}">{mercados.Region}</a>
+						</td>
+						<td>{mercados.Country}</td>
+						<td>{mercados.Population}</td>
+						<td>{mercados.Internet_pop}</td>
+						<td>{mercados.Revenues}</td>
+						<td><Button outline color="danger" on:click="{deleteMercado(mercados.Region,mercados.Country)}">  <i class="fa fa-trash" aria-hidden="true"></i> Borrar</Button></td>
+					</tr>
+				{/each}
+			</tbody>
+		</Table>
+	{/await}
+ 
+	<Pagination style="float:right;" ariaLabel="Cambiar de página">
+
+
+		<PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
+		  <PaginationLink previous href="#/mercadosAPI" on:click="{() => addOffset(-1)}" />
+		</PaginationItem>
+		
+		{#if currentPage != 1}
+		<PaginationItem>
+			<PaginationLink href="#/mercadosAPI" on:click="{() => addOffset(-1)}" >{currentPage - 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem active>
+			<PaginationLink href="#/mercadosAPI" >{currentPage}</PaginationLink>
+		</PaginationItem>
+
+		{#if moreData}
+		<PaginationItem >
+			<PaginationLink href="#/mercadosAPI" on:click="{() => addOffset(1)}">{currentPage + 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+
+		<PaginationItem class="{moreData ? '' : 'disabled'}">
+		  <PaginationLink next href="#/mercadosAPI" on:click="{() => addOffset(1)}"/>
+		</PaginationItem>
+
+	</Pagination>
+
+	<Button outline  color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar datos originales </Button>
+	<Button outline  on:click={deleteMercadoCompleto}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
+	<Button outline  color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+	
+
+
+</main>
