@@ -4,8 +4,8 @@
 	} from "svelte";
 
 	import {
-        pop
-    } from "svelte-spa-router";
+		pop
+	} from "svelte-spa-router";
 
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
@@ -22,8 +22,8 @@
 		Country: "",
 		Region: "",
 		Population: "",
-		Internet_pop:"",
-		Revenues:""
+		Internet_pop: "",
+		Revenues: ""
 	};
 
 	let countries = [];
@@ -33,29 +33,28 @@
 
 	let numberOfElements = 5;
 	let offset = 0;
-	let currentPage = 1; 
-	let moreData = true; 
+	let currentPage = 1;
+	let moreData = true;
 
 	onMount(getMercado);
 	onMount(getCountryRegion);
 
-
 	async function getCountryRegion() {
-		const res = await fetch("/api/v1/mercados"); 
+		const res = await fetch("/api/v1/mercados");
 
 		if (res.ok) {
 			const json = await res.json();
 
 			countries = json.map((d) => {
-					return d.Country;            
+				return d.Country;
 			});
-			countries = Array.from(new Set(countries));   
-			
-			
-			regions = json.map((d) => {   
-					return d.Region;    
+			countries = Array.from(new Set(countries));
+
+
+			regions = json.map((d) => {
+				return d.Region;
 			});
-			regions = Array.from(new Set(regions));      
+			regions = Array.from(new Set(regions));
 
 			console.log("Contados " + countries.length + "paises y " + regions.length + "regiones distintos.");
 
@@ -64,12 +63,12 @@
 		}
 	}
 
-	
 
-	async function getMercado(){
+
+	async function getMercado() {
 
 		console.log("Fetching mercados...");
-		const res = await fetch("/api/v1/mercados?offset=" + numberOfElements * offset + "&limit=" + numberOfElements); 
+		const res = await fetch("/api/v1/mercados?offset=" + numberOfElements * offset + "&limit=" + numberOfElements);
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -77,21 +76,21 @@
 			mercados = json;
 			console.log("Received " + mercados.length + " mercados.");
 
-			if (mercados.length!=numberOfElements){
-				moreData=false
-			} else{
+			if (mercados.length != numberOfElements) {
+				moreData = false
+			} else {
 
-						const next = await fetch("/api/v1/mercados?offset=" + numberOfElements * (offset+1) + "&limit=" + numberOfElements); 
-						console.log("La variable NEXT tiene el estado: " + next.status)
-						const jsonNext = await next.json();
-						if (jsonNext.length == 0 || next.status==404) {  
-							moreData = false;
-						} 
-						else {
-							moreData = true;  
-						}
-					}
-		} 
+				const next = await fetch("/api/v1/mercados?offset=" + numberOfElements * (offset + 1) + "&limit=" + numberOfElements);
+				console.log("La variable NEXT tiene el estado: " + next.status)
+				const jsonNext = await next.json();
+				if (jsonNext.length == 0 || next.status == 404) {
+					moreData = false;
+				}
+				else {
+					moreData = true;
+				}
+			}
+		}
 		else {
 			errorResponse(res)
 		}
@@ -101,7 +100,7 @@
 		const res = await fetch("/api/v1/mercados/loadInitialData")
 		responseAlert("Se han recuperado los valores iniciales de la tabla de mercados")
 		location.reload();
-		
+
 	}
 
 	async function insertMercado() {
@@ -110,42 +109,42 @@
 
 		if (newMercado.Country == ""
 			|| newMercado.Country == null
-			|| newMercado.Region == "" 
+			|| newMercado.Region == ""
 			|| newMercado.Region == null) {
-			
+
 			alert("Se debe incluir el nombre del país y la region obligatoriamente");
 		} else {
-				const res = await fetch("/api/v1/mercados", {
-					method: "POST",
-					body: JSON.stringify(newMercado),
-					headers: {
-						"Content-Type": "application/json"
-					}
-				}).then(function (res) {
-					if (res.ok){
-						getMercado();
-						responseAlert("Datos de " +newMercado.Country + " añadidos correctamente")
-						location.reload();
-					} else{
-						errorResponse(res)
-					}
-					
-				});
-			}
+			const res = await fetch("/api/v1/mercados", {
+				method: "POST",
+				body: JSON.stringify(newMercado),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			}).then(function (res) {
+				if (res.ok) {
+					getMercado();
+					responseAlert("Datos de " + newMercado.Country + " añadidos correctamente")
+					location.reload();
+				} else {
+					errorResponse(res)
+				}
+
+			});
+		}
 	}
 
 
-	async function deleteMercado(Region,Country) {
-		console.log("Deleting mercados..." + JSON.stringify(Region)+ + JSON.stringify(Country) );
+	async function deleteMercado(Region, Country) {
+		console.log("Deleting mercados..." + JSON.stringify(Region) + + JSON.stringify(Country));
 
-		const res = await fetch("/api/v1/mercados/" + Region+"/"+Country, {
+		const res = await fetch("/api/v1/mercados/" + Region + "/" + Country, {
 			method: "DELETE"
 		}).then(function (res) {
-			if (res.ok){
+			if (res.ok) {
 				getMercado();
 				getCountryRegion();
 				responseAlert("El país se ha borrado correctamente")
-			} 
+			}
 			else {
 				errorResponse(res);
 			}
@@ -157,13 +156,13 @@
 		const res = await fetch("/api/v1/mercados/", {
 			method: "DELETE"
 		}).then(function (res) {
-			if (res.ok){
-			const json =  res.json();
-			mercados = json;
-			responseAlert("Todos los países se han borrado correctamente")
-		} else{
-			errorResponse(res);
-		}
+			if (res.ok) {
+				const json = res.json();
+				mercados = json;
+				responseAlert("Todos los países se han borrado correctamente")
+			} else {
+				errorResponse(res);
+			}
 		});
 	}
 
@@ -173,7 +172,7 @@
 		var url = "/api/v1/mercados";
 
 		if (Region != "-" && Country != "-") {
-			url = url + "?Region=" + Region + "&Country=" + Country; 
+			url = url + "?Region=" + Region + "&Country=" + Country;
 		} else if (Region != "-" && Country == "-") {
 			url = url + "?Region=" + Region;
 		} else if (Region == "-" && Country != "-") {
@@ -185,24 +184,24 @@
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-			mercados = json;			
+			mercados = json;
 			console.log("Found " + mercados.length + " mercados stats.");
-		
+
 			if (Region != "-" && Country != "-") {
-				responseAlert("Busqueda de "+ Region+ " en el pais " + Country +" realizada correctamente")  
-		} else if (Region != "-" && Country == "-") {
-				responseAlert("Busqueda de "+ Region  +" realizada correctamente" )  
-		} else if (Region == "-" && Country != "-") {
-				responseAlert("Busqueda en el pais "+ Country+ " realizada correctamente")  
-		}
+				responseAlert("Busqueda de " + Region + " en el pais " + Country + " realizada correctamente")
+			} else if (Region != "-" && Country == "-") {
+				responseAlert("Busqueda de " + Region + " realizada correctamente")
+			} else if (Region == "-" && Country != "-") {
+				responseAlert("Busqueda en el pais " + Country + " realizada correctamente")
+			}
 		} else {
 			errorResponse(res)
 			console.log("ERROR!");
 		}
-		
+
 	}
 
-	function addOffset (increment) {
+	function addOffset(increment) {
 		offset += increment;
 		currentPage += increment;
 		getMercado();
@@ -216,49 +215,49 @@
 		alert_element.style = "position: fixed; top: 0px; top: 1%; width: 90%;";
 		alert_element.className = "alert alert-dismissible in alert-success";
 		alert_element.innerHTML = "<strong>¡Exito!</strong> " + msg;
-		
+
 		setTimeout(() => {
 			clearAlert();
 		}, 3000);
 	}
 
-	function clearAlert () {
+	function clearAlert() {
 		var alert_element = document.getElementById("div_alert");
 		alert_element.style = "display: none; ";
 		alert_element.className = "alert alert-dismissible in";
 		alert_element.innerHTML = "";
 	}
 
-function errorResponse(res, msg) {
-	var status = res.status
-	switch (status) {
-		case 400:
-			alert("Codigo de error: " + status + '\n'+ "Los datos introduccidos no son validos");
-			break;
-		case 401:
-			alert("Codigo de error: " + status + '\n'+ "No tiene permisos para realizar esta accion");
-			break;
-		case 404:
-			alert("Codigo de error: " + status + '\n'+ "Página no encontrada");
-			break;
-		case 405:
-			alert("Codigo de error: " + status + '\n'+ "Metodo no permitido");
-			break;
-		case 409:
-			alert("Codigo de error: " + status + '\n'+ "Conflicto con la operacion");
-			break;
-
-		default:
-			if (status!=400 && status!=401 && status!=404 && status!=405  && status!=409  && status!=200  && status!=2001) {
-				alert("Codigo de error: "+ status +'\n'+ "Error de desconocido por el sistema")
+	function errorResponse(res, msg) {
+		var status = res.status
+		switch (status) {
+			case 400:
+				alert("Codigo de error: " + status + '\n' + "Los datos introduccidos no son validos");
+				break;
+			case 401:
+				alert("Codigo de error: " + status + '\n' + "No tiene permisos para realizar esta accion");
+				break;
+			case 404:
+				alert("Codigo de error: " + status + '\n' + "Página no encontrada");
+				break;
+			case 405:
+				alert("Codigo de error: " + status + '\n' + "Metodo no permitido");
+				break;
+			case 409:
+				alert("Codigo de error: " + status + '\n' + "Conflicto con la operacion");
 				break;
 
-			}else{
-				break;
-			}
-			
+			default:
+				if (status != 400 && status != 401 && status != 404 && status != 405 && status != 409 && status != 200 && status != 2001) {
+					alert("Codigo de error: " + status + '\n' + "Error de desconocido por el sistema")
+					break;
+
+				} else {
+					break;
+				}
+
+		}
 	}
-}
 
 
 </script>

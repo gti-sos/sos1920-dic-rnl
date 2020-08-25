@@ -1,10 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require ("path");
+const cors = require ("cors");
 const mercadosAPI =require(path.join(__dirname,"./src/back/mercadosAPI"));
 
 var app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 mercadosAPI(app);

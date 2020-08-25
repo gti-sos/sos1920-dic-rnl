@@ -1,70 +1,10 @@
-{"Region":"Europe","Country":"Spain","Population":46.8,"Internet_pop":40.8,"Revenues":2.656,"_id":"0xXdPoczfQGfAw1q"}
-{"Region":"Asia-Pacific","Country":"China","Population":1439.3,"Internet_pop":907.5,"Revenues":40.854,"_id":"FbAcJsFDknXpLG0h"}
-{"Region":"Europe","Country":"Italy","Population":60.5,"Internet_pop":52.7,"Revenues":2.661,"_id":"Lf4muPhJ84uizNH5"}
-{"Region":"Asia-Pacific","Country":"Japan","Population":126.5,"Internet_pop":101.5,"Revenues":18.683,"_id":"NSsWa3WN3CuxTk5k"}
-{"Region":"Europe","Country":"United Kingdom","Population":67.9,"Internet_pop":61.8,"Revenues":5.511,"_id":"VXyNPAkvrGiCHWvT"}
-{"Region":"Europe","Country":"Germany","Population":83.8,"Internet_pop":75.5,"Revenues":5.965,"_id":"aOFobSnkOlGEQOz8"}
-{"Region":"Asia-Pacific","Country":"South Korea","Population":51.3,"Internet_pop":48.2,"Revenues":6.564,"_id":"eptmEfuEbWWlkWv3"}
-{"Region":"North America","Country":"Canada","Population":37.7,"Internet_pop":33.7,"Revenues":3.051,"_id":"qQH0KspMv3RSTLEX"}
-{"Region":"North America","Country":"United States","Population":331,"Internet_pop":283.9,"Revenues":36.921,"_id":"r5dWBqzlNHFPe6hD"}
-{"Region":"Europe","Country":"France","Population":65.3,"Internet_pop":58.2,"Revenues":3.987,"_id":"xGJZIuItFppZmi4U"}
-{"$$deleted":true,"_id":"NSsWa3WN3CuxTk5k"}
-{"$$deleted":true,"_id":"VXyNPAkvrGiCHWvT"}
-{"$$deleted":true,"_id":"aOFobSnkOlGEQOz8"}
-{"$$deleted":true,"_id":"eptmEfuEbWWlkWv3"}
-{"$$deleted":true,"_id":"qQH0KspMv3RSTLEX"}
-{"$$deleted":true,"_id":"r5dWBqzlNHFPe6hD"}
-{"$$deleted":true,"_id":"xGJZIuItFppZmi4U"}
-{"$$deleted":true,"_id":"FbAcJsFDknXpLG0h"}
-{"$$deleted":true,"_id":"0xXdPoczfQGfAw1q"}
-{"$$deleted":true,"_id":"Lf4muPhJ84uizNH5"}
-{"Region":"Asia-Pacific","Country":"China","Population":1439.3,"Internet_pop":907.5,"Revenues":40.854,"_id":"JFardRxl6MHSvdQr"}
-{"Region":"North America","Country":"United States","Population":331,"Internet_pop":283.9,"Revenues":36.921,"_id":"5eiBBxzNeJSrSQC7"}
-{"Region":"Asia-Pacific","Country":"Japan","Population":126.5,"Internet_pop":101.5,"Revenues":18.683,"_id":"TvBo2HMM8eB3nViu"}
-{"Region":"Asia-Pacific","Country":"South Korea","Population":51.3,"Internet_pop":48.2,"Revenues":6.564,"_id":"nuC574aSL4Lcr3rC"}
-{"Region":"Europe","Country":"Germany","Population":83.8,"Internet_pop":75.5,"Revenues":5.965,"_id":"Wl0JyerOc4eHCFDP"}
-{"Region":"Europe","Country":"United Kingdom","Population":67.9,"Internet_pop":61.8,"Revenues":5.511,"_id":"HIA5nYZVfTxzJ5GY"}
-{"Region":"Europe","Country":"France","Population":65.3,"Internet_pop":58.2,"Revenues":3.987,"_id":"k278K0XnZYUQhbxp"}
-{"Region":"North America","Country":"Canada","Population":37.7,"Internet_pop":33.7,"Revenues":3.051,"_id":"tCTU1TPAAAvjqiRU"}
-{"Region":"Europe","Country":"Italy","Population":60.5,"Internet_pop":52.7,"Revenues":2.661,"_id":"AHUopKIukQhCUy7G"}
-{"Region":"Europe","Country":"Spain","Population":46.8,"Internet_pop":40.8,"Revenues":2.656,"_id":"AWrYCtcg6aVzhQIe"}
-{"$$deleted":true,"_id":"5eiBBxzNeJSrSQC7"}
-{"$$deleted":true,"_id":"AHUopKIukQhCUy7G"}
-{"$$deleted":true,"_id":"AWrYCtcg6aVzhQIe"}
-{"$$deleted":true,"_id":"HIA5nYZVfTxzJ5GY"}
-{"$$deleted":true,"_id":"JFardRxl6MHSvdQr"}
-{"$$deleted":true,"_id":"TvBo2HMM8eB3nViu"}
-{"$$deleted":true,"_id":"Wl0JyerOc4eHCFDP"}
-{"$$deleted":true,"_id":"k278K0XnZYUQhbxp"}
-{"$$deleted":true,"_id":"nuC574aSL4Lcr3rC"}
-{"$$deleted":true,"_id":"tCTU1TPAAAvjqiRU"}
-{"Region":"Asia-Pacific","Country":"China","Population":1439.3,"Internet_pop":907.5,"Revenues":40.854,"_id":"ol5Y7AIDZGvgFseF"}
-{"Region":"North America","Country":"United States","Population":331,"Internet_pop":283.9,"Revenues":36.921,"_id":"lU7wDQig00Sp4d6S"}
-{"Region":"Asia-Pacific","Country":"Japan","Population":126.5,"Internet_pop":101.5,"Revenues":18.683,"_id":"9CiRxsek4KlOHMFg"}
-{"Region":"Asia-Pacific","Country":"South Korea","Population":51.3,"Internet_pop":48.2,"Revenues":6.564,"_id":"KYXbKRvRihuBYDAM"}
-{"Region":"Europe","Country":"Germany","Population":83.8,"Internet_pop":75.5,"Revenues":5.965,"_id":"tNJ8KX6KerAF021W"}
-{"Region":"Europe","Country":"United Kingdom","Population":67.9,"Internet_pop":61.8,"Revenues":5.511,"_id":"JuAXN3nkq4ukQUza"}
-{"Region":"Europe","Country":"France","Population":65.3,"Internet_pop":58.2,"Revenues":3.987,"_id":"vfwuk04BDyBGm6mE"}
-{"Region":"North America","Country":"Canada","Population":37.7,"Internet_pop":33.7,"Revenues":3.051,"_id":"9r5bh4L0RAa02df6"}
-{"Region":"Europe","Country":"Italy","Population":60.5,"Internet_pop":52.7,"Revenues":2.661,"_id":"XDvCEqGp9xVPCtR2"}
-{"Region":"Europe","Country":"Spain","Population":46.8,"Internet_pop":40.8,"Revenues":2.656,"_id":"RWIELXbr5HZwmofo"}
-{"$$deleted":true,"_id":"9CiRxsek4KlOHMFg"}
-{"$$deleted":true,"_id":"9r5bh4L0RAa02df6"}
-{"$$deleted":true,"_id":"JuAXN3nkq4ukQUza"}
-{"$$deleted":true,"_id":"KYXbKRvRihuBYDAM"}
-{"$$deleted":true,"_id":"RWIELXbr5HZwmofo"}
-{"$$deleted":true,"_id":"XDvCEqGp9xVPCtR2"}
-{"$$deleted":true,"_id":"lU7wDQig00Sp4d6S"}
-{"$$deleted":true,"_id":"ol5Y7AIDZGvgFseF"}
-{"$$deleted":true,"_id":"tNJ8KX6KerAF021W"}
-{"$$deleted":true,"_id":"vfwuk04BDyBGm6mE"}
-{"Region":"Asia-Pacific","Country":"China","Population":1439.3,"Internet_pop":907.5,"Revenues":40.854,"_id":"i5mS8TLmOXEuMyvh"}
-{"Region":"North America","Country":"United States","Population":331,"Internet_pop":283.9,"Revenues":36.921,"_id":"MaAZTjNDfNZFwdpZ"}
-{"Region":"Asia-Pacific","Country":"Japan","Population":126.5,"Internet_pop":101.5,"Revenues":18.683,"_id":"qGh9Tkowrp4bWI6V"}
-{"Region":"Asia-Pacific","Country":"South Korea","Population":51.3,"Internet_pop":48.2,"Revenues":6.564,"_id":"5VTG48O4UXpFPDLw"}
 {"Region":"Europe","Country":"Germany","Population":83.8,"Internet_pop":75.5,"Revenues":5.965,"_id":"1C2Pw7VlUwPKX7fe"}
-{"Region":"Europe","Country":"United Kingdom","Population":67.9,"Internet_pop":61.8,"Revenues":5.511,"_id":"XzeIRwEu5qNfWSJ0"}
-{"Region":"Europe","Country":"France","Population":65.3,"Internet_pop":58.2,"Revenues":3.987,"_id":"jMn0gSKSeNkEZTnh"}
-{"Region":"North America","Country":"Canada","Population":37.7,"Internet_pop":33.7,"Revenues":3.051,"_id":"vQAgnnzZbRGllPmM"}
-{"Region":"Europe","Country":"Italy","Population":60.5,"Internet_pop":52.7,"Revenues":2.661,"_id":"UCzdk3RgpgRRa6fd"}
+{"Region":"Asia-Pacific","Country":"South Korea","Population":51.3,"Internet_pop":48.2,"Revenues":6.564,"_id":"5VTG48O4UXpFPDLw"}
+{"Region":"North America","Country":"United States","Population":331,"Internet_pop":283.9,"Revenues":36.921,"_id":"MaAZTjNDfNZFwdpZ"}
 {"Region":"Europe","Country":"Spain","Population":46.8,"Internet_pop":40.8,"Revenues":2.656,"_id":"QAReuQGFZVN5I3xr"}
+{"Region":"Europe","Country":"Italy","Population":60.5,"Internet_pop":52.7,"Revenues":2.661,"_id":"UCzdk3RgpgRRa6fd"}
+{"Region":"Europe","Country":"United Kingdom","Population":67.9,"Internet_pop":61.8,"Revenues":5.511,"_id":"XzeIRwEu5qNfWSJ0"}
+{"Region":"Asia-Pacific","Country":"China","Population":1439.3,"Internet_pop":907.5,"Revenues":40.854,"_id":"i5mS8TLmOXEuMyvh"}
+{"Region":"Europe","Country":"France","Population":65.3,"Internet_pop":58.2,"Revenues":3.987,"_id":"jMn0gSKSeNkEZTnh"}
+{"Region":"Asia-Pacific","Country":"Japan","Population":126.5,"Internet_pop":101.5,"Revenues":18.683,"_id":"qGh9Tkowrp4bWI6V"}
+{"Region":"North America","Country":"Canada","Population":37.7,"Internet_pop":33.7,"Revenues":3.051,"_id":"vQAgnnzZbRGllPmM"}
