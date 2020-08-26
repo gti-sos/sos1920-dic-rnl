@@ -80,7 +80,7 @@
     <h2>Gráfica 2 Billboard</h2>
     
         <p>
-            El gráfico de burbujas muestra los ingresos en M(€).
+            El gráfico de burbujas muestra los ingresos en Millones de euros (€).
         </p>
         <Button style= "font-weight: bold;" color="info" on:click="{back}" >Atrás</Button>
   </main>
