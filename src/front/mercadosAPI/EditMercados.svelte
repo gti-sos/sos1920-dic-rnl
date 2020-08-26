@@ -170,7 +170,7 @@
 					<th>Pais</th>
 					<th>Poblacion</th>
 					<th>Usuarios de internet</th>
-					<th>Ingresos</th>
+					<th>Ingresos (M(€))</th>
 					<th>Acciones</th>
                 </tr>
             </thead>

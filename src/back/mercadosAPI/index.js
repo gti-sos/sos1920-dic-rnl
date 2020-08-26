@@ -14,30 +14,30 @@ module.exports = function (app) {
 
 	var initialmercados = [
 		{
-			Region: "Asia-Pacific",
+			Region: "Asia_Pacific",
 			Country: "China",
 			Population: 1439.3,
 			Internet_pop: 907.5,
 			Revenues: 40.854
 		},
 		{
-			Region: "North America",
-			Country: "United States",
+			Region: "North_America",
+			Country: "United_States",
 			Population: 331.0,
 			Internet_pop: 283.9,
 			Revenues: 36.921
 		},
 		{
 
-			Region: "Asia-Pacific",
+			Region: "Asia_Pacific",
 			Country: "Japan",
 			Population: 126.5,
 			Internet_pop: 101.5,
 			Revenues: 18.683
 		},
 		{
-			Region: "Asia-Pacific",
-			Country: "South Korea",
+			Region: "Asia_Pacific",
+			Country: "South_Korea",
 			Population: 51.3,
 			Internet_pop: 48.2,
 			Revenues: 6.564
@@ -51,7 +51,7 @@ module.exports = function (app) {
 		},
 		{
 			Region: "Europe",
-			Country: "United Kingdom",
+			Country: "United_Kingdom",
 			Population: 67.9,
 			Internet_pop: 61.8,
 			Revenues: 5.511
@@ -64,7 +64,7 @@ module.exports = function (app) {
 			Revenues: 3.987
 		},
 		{
-			Region: "North America",
+			Region: "North_America",
 			Country: "Canada",
 			Population: 37.7,
 			Internet_pop: 33.7,

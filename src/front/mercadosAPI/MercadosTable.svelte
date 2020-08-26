@@ -56,7 +56,7 @@
 			});
 			regions = Array.from(new Set(regions));
 
-			console.log("Contados " + countries.length + "paises y " + regions.length + "regiones distintos.");
+			console.log("Contados " + countries.length + " paises y " + regions.length + " regiones distintos.");
 
 		} else {
 			errorResponse(res)
@@ -319,15 +319,16 @@
 
 		<Button outline  style= "font-weight: bold;" color="secondary" on:click="{search(currentRegion, currentCountry)}" class="button-search" > <i class="fas fa-search"></i> Buscar </Button>
 		
+		<h4>Los datos ingresados en la tabla no deben contener espacio. Por ejemplo United States, debería ser United_States</h4>
 
 		<Table bordered class = "borde-tabla">
 			<thead> 
 				<tr class = "borde-tabla">
-					<th class = "borde-tabla" >Region</th>
+					<th class = "borde-tabla" >Región</th>
 					<th class = "borde-tabla">Pais</th>
-					<th class = "borde-tabla">Poblacion</th>
+					<th class = "borde-tabla">Población</th>
 					<th class = "borde-tabla">Usuarios en internet</th>
-					<th class = "borde-tabla">Ingresos</th>
+					<th class = "borde-tabla">Ingresos (M(€))</th>
 					<th class = "borde-tabla">Acciones</th>
 
 				</tr>

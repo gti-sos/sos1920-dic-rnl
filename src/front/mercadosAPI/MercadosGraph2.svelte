@@ -67,12 +67,12 @@
     }
   
   </script>
-  
+
   <head>
   
-      <script src="https://d3js.org/d3.v5.min.js"></script>
-      <script src="libraries/billboard.js"></script>
-      <link rel="stylesheet" href="css/billboard.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="libraries/billboard.js"></script>
+    <link rel="stylesheet" href="css/billboard.css">
     
   </head>
   
@@ -80,7 +80,7 @@
     <h2>Gráfica 2 Billboard</h2>
     
         <p>
-            El gráfico de pompas muestra los ingresos en M(€).
+            El gráfico de burbujas muestra los ingresos en M(€).
         </p>
         <Button style= "font-weight: bold;" color="info" on:click="{back}" >Atrás</Button>
   </main>
