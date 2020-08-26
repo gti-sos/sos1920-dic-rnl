@@ -60,12 +60,6 @@
     }
   
     loadGraph();
-  
-    function back(){
-      window.location.href= "/#/";
-      location.reload();
-    }
-  
   </script>
 
   <head>
@@ -82,6 +76,7 @@
         <p>
             El gráfico de burbujas muestra los ingresos en Millones de euros (€).
         </p>
-        <Button style= "font-weight: bold;" color="info" on:click="{back}" >Atrás</Button>
+        <Button style= "font-weight: bold;" color="info" on:click="{pop}">Atrás</Button>
+        <div id= "bubbleChart"></div>
   </main>
   
