@@ -6,6 +6,7 @@
 	import mercados from './mercadosAPI/App.svelte';
 	import Editmercados from './mercadosAPI/EditMercados.svelte';
 	import MercadosGraph1 from './mercadosAPI/MercadosGraph1.svelte';
+	import MercadosGraph2 from './mercadosAPI/MercadosGraph2.svelte';
 
 	import NotFound from './NotFound.svelte';
 	
@@ -14,6 +15,7 @@
 		"/mercados/:Region/:Country": Editmercados,
 		"/mercadosAPI":mercados,
 		"/MercadosGraph1":MercadosGraph1,
+		"/MercadosGraph2":MercadosGraph2,
 		"*": NotFound
 	};
 </script>

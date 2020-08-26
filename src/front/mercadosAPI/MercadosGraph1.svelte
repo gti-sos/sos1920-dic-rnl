@@ -13,13 +13,10 @@
         let regions = Array.from(MyData.map((d) => { return d.Region + " " + d.Country; }));
         let population = Array.from(MyData.map((d) => { return parseFloat(d.Population); }));
         let internet_pop = Array.from(MyData.map((d) => { return parseFloat(d.Internet_pop); }));
-        let revenues = Array.from(MyData.map((d) => { return parseFloat(d.Revenues); }));
         console.log("Población:");
         console.log(population);
         console.log("Usuarios:");
         console.log(internet_pop);
-        console.log("Ingresos:");
-        console.log(revenues);
 
         console.log("Grafico 1");
 
@@ -65,9 +62,6 @@
             }, {
                 name: 'Usuarios (personas)',
                 data: internet_pop
-            }, {
-                name: 'Ingresos (€)',
-                data: revenues
             }]
         });
     }
@@ -84,13 +78,14 @@
 
 <main>
     <h2>Gráfico 1 de mercados de juegos por región</h2>
-    <Button color="info" on:click="{pop}">Atrás</Button>
+    <Button style= "font-weight: bold;" color="info" on:click="{pop}">Atrás</Button>
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <p class="highcharts-description">
-            Esta tabla presenta los 10 principales mercados de juegos clasificados según su región, país y sus estimaciones de ingresos para 2020.
+        <p style= "font-weight: bold;" class="highcharts-description">
+            Esta tabla presenta los 10 principales mercados de juegos clasificados según la poblacion y usuarios que tiene cada región y pais para 2020.
         </p>
     </figure>
+    
 </main>
 
 <style>

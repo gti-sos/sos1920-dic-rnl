@@ -112,7 +112,7 @@
 			|| newMercado.Region == ""
 			|| newMercado.Region == null) {
 
-			alert("Se debe incluir el nombre del país y la region obligatoriamente");
+				responseWarning("Se debe incluir el nombre del país y la region obligatoriamente");
 		} else {
 			const res = await fetch("/api/v1/mercados", {
 				method: "POST",
@@ -212,7 +212,7 @@
 	function responseAlert(msg) {
 		clearAlert();
 		var alert_element = document.getElementById("div_alert");
-		alert_element.style = "position: fixed; top: 0px; top: 1%; width: 90%;";
+		alert_element.style = "text-align:center; position: fixed; margin-left:650px; color:black;border-width:3px; border-color:green; top: 50px; top: 30%; width: 30%;";
 		alert_element.className = "alert alert-dismissible in alert-success";
 		alert_element.innerHTML = "<strong>¡Exito!</strong> " + msg;
 
@@ -220,6 +220,31 @@
 			clearAlert();
 		}, 3000);
 	}
+	function responseWarning(msg) {
+		clearAlert();
+		var alert_element = document.getElementById("div_alert");
+		alert_element.style = "text-align:center; position: fixed; margin-left:650px; color:black; border-width:3px;border-color:black; top: 50px; top: 30%; width: 30%;";
+		alert_element.className = "alert alert-dismissible in alert-success";
+		alert_element.style.backgroundColor = "yellow";
+		alert_element.innerHTML = "<strong>¡Cuidado!</strong> " + msg;
+
+		setTimeout(() => {
+			clearAlert();
+		}, 3000);
+	}
+	function responseError(msg) {
+		clearAlert();
+		var alert_element = document.getElementById("div_alert");
+		alert_element.style = "text-align:center; position: fixed; margin-left:650px; color:white; border-width:3px; border-color:black; top: 50px; top: 30%; width: 30%;";
+		alert_element.className = "alert alert-dismissible in alert-success";
+		alert_element.style.backgroundColor = "red";
+		alert_element.innerHTML = " " + msg;
+
+		setTimeout(() => {
+			clearAlert();
+		}, 3000);
+	}
+
 
 	function clearAlert() {
 		var alert_element = document.getElementById("div_alert");
@@ -232,24 +257,27 @@
 		var status = res.status
 		switch (status) {
 			case 400:
-				alert("Codigo de error: " + status + '\n' + "Los datos introduccidos no son validos");
+			responseError("Codigo de error: " + status + '\n' + ".Los datos introduccidos no son validos");
 				break;
 			case 401:
-				alert("Codigo de error: " + status + '\n' + "No tiene permisos para realizar esta accion");
+			responseError("Codigo de error: " + status + '\n' + ".No tiene permisos para realizar esta accion");
 				break;
 			case 404:
-				alert("Codigo de error: " + status + '\n' + "Página no encontrada");
+			responseError("Codigo de error: " + status + '\n' + ".Página no encontrada");
 				break;
 			case 405:
-				alert("Codigo de error: " + status + '\n' + "Metodo no permitido");
+			responseError("Codigo de error: " + status + '\n' + ".Metodo no permitido");
 				break;
 			case 409:
-				alert("Codigo de error: " + status + '\n' + "Conflicto con la operacion");
+			responseError("Codigo de error: " + status + '\n' + ".Conflicto con la operacion");
 				break;
+			case 420:
+			responseError("Codigo de error: " + status + '\n' + ".Región y País ya existentes, editelo o cambie de país.");
+				break;	
 
 			default:
-				if (status != 400 && status != 401 && status != 404 && status != 405 && status != 409 && status != 200 && status != 2001) {
-					alert("Codigo de error: " + status + '\n' + "Error de desconocido por el sistema")
+				if (status != 420 && status != 400 && status != 401 && status != 404 && status != 405 && status != 409 && status != 200 && status != 2001) {
+					responseError("Codigo de error: " + status + '\n' + ".Error de desconocido por el sistema")
 					break;
 
 				} else {
@@ -262,14 +290,14 @@
 
 </script>
 
-<main>
+<main style= "font-weight: bold;">
 	<div role="alert" id="div_alert" style="display: none;">
 	</div>
 	{#await mercados}
 		Loading mercados...
 	{:then mercados}
 
-		<FormGroup> 
+		<FormGroup > 
 			<Label for="selectRegion"> Búsqueda por Región </Label>
 			<Input type="select" name="selectRegion" id="selectRegion" bind:value="{currentRegion}">
 				{#each regions as region}
@@ -289,40 +317,40 @@
 			</Input>
 		</FormGroup>
 
-		<Button outline color="secondary" on:click="{search(currentRegion, currentCountry)}" class="button-search" > <i class="fas fa-search"></i> Buscar </Button>
+		<Button outline  style= "font-weight: bold;" color="secondary" on:click="{search(currentRegion, currentCountry)}" class="button-search" > <i class="fas fa-search"></i> Buscar </Button>
 		
 
-		<Table bordered>
-			<thead>
-				<tr>
-					<th>Region</th>
-					<th>Pais</th>
-					<th>Poblacion</th>
-					<th>Usuarios en internet</th>
-					<th>Ingresos</th>
-					<th>Acciones</th>
+		<Table bordered class = "borde-tabla">
+			<thead> 
+				<tr class = "borde-tabla">
+					<th class = "borde-tabla" >Region</th>
+					<th class = "borde-tabla">Pais</th>
+					<th class = "borde-tabla">Poblacion</th>
+					<th class = "borde-tabla">Usuarios en internet</th>
+					<th class = "borde-tabla">Ingresos</th>
+					<th class = "borde-tabla">Acciones</th>
 
 				</tr>
 			</thead>
-			<tbody>
+			<tbody >
 				<tr>
-					<td><input  placeholder="Ej. Europe" bind:value="{newMercado.Region}"></td>
-					<td><input  placeholder="Ej. Spain" bind:value="{newMercado.Country}" ></td>
-					<td><input type="number" placeholder="Ej. 1111.11" bind:value="{newMercado.Population}"></td>
-					<td><input type="number" placeholder="Ej. 11.11" bind:value="{newMercado.Internet_pop}"></td>
-					<td><input type="number" placeholder="Ej. 1111.11" bind:value="{newMercado.Revenues}"></td>
-					<td> <Button outline  color="primary" on:click={insertMercado} > Insertar</Button> </td>
+					<td class = "borde-tabla"><input  placeholder="Ej. Europe" bind:value="{newMercado.Region}"></td>
+					<td class = "borde-tabla"><input  placeholder="Ej. Spain" bind:value="{newMercado.Country}" ></td>
+					<td class = "borde-tabla"><input type="number" placeholder="Ej. 1111.11" bind:value="{newMercado.Population}"></td>
+					<td class = "borde-tabla"><input type="number" placeholder="Ej. 11.11" bind:value="{newMercado.Internet_pop}"></td>
+					<td class = "borde-tabla"><input type="number" placeholder="Ej. 1111.11" bind:value="{newMercado.Revenues}"></td>
+					<td class = "borde-tabla"> <Button outline  style= "font-weight: bold;" color="primary" on:click={insertMercado} > Insertar</Button> </td>
 				</tr>
 				{#each mercados as mercados}
 					<tr>
-						<td>
+						<td class = "borde-tabla">
 							<a href="#/mercados/{mercados.Region}/{mercados.Country}">{mercados.Region}</a>
 						</td>
-						<td>{mercados.Country}</td>
-						<td>{mercados.Population}</td>
-						<td>{mercados.Internet_pop}</td>
-						<td>{mercados.Revenues}</td>
-						<td><Button outline color="danger" on:click="{deleteMercado(mercados.Region,mercados.Country)}">  <i class="fa fa-trash" aria-hidden="true"></i> Borrar</Button></td>
+						<td class = "borde-tabla">{mercados.Country}</td>
+						<td class = "borde-tabla">{mercados.Population}</td>
+						<td class = "borde-tabla">{mercados.Internet_pop}</td>
+						<td class = "borde-tabla">{mercados.Revenues}</td>
+						<td class = "borde-tabla"><Button outline  style= "font-weight: bold;" color="danger" on:click="{deleteMercado(mercados.Region,mercados.Country)}">  <i class="fa fa-trash" aria-hidden="true"></i> Borrar</Button></td>
 					</tr>
 				{/each}
 			</tbody>
@@ -357,10 +385,15 @@
 
 	</Pagination>
 
-	<Button outline  color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar datos originales </Button>
-	<Button outline  on:click={deleteMercadoCompleto}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
-	<Button outline  color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+	<Button outline  style= "font-weight: bold;" color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar datos originales </Button>
+	<Button outline  style= "font-weight: bold;" on:click={deleteMercadoCompleto}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
+	<Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 	
 
 
 </main>
+<style>
+	.borde-tabla{
+   		border: 1px solid #000;
+	}
+	</style>

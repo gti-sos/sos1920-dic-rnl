@@ -182,7 +182,7 @@ module.exports = function (app) {
 					db.insert(newMercados);
 					res.sendStatus(201, "CREATED");
 				} else {
-					res.sendStatus(400, "BAD REQUEST");
+					res.sendStatus(420, "BAD REQUEST");
 				}
 			});
 		}
