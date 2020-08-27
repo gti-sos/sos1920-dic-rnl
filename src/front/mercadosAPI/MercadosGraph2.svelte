@@ -76,6 +76,7 @@
         <b><p>
             El gráfico de burbujas muestra los ingresos en Millones de euros (€).
         </p></b>  
+        <p></p>
         <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
         <div id= "bubbleChart"></div>
   </main>
