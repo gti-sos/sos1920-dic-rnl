@@ -73,10 +73,10 @@
   <main>
     <h2>Gráfica 2 Billboard</h2>
     
-        <p>
+        <b><p>
             El gráfico de burbujas muestra los ingresos en Millones de euros (€).
-        </p>
-        <Button style= "font-weight: bold;" color="info" on:click="{pop}">Atrás</Button>
+        </p></b>  
+        <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
         <div id= "bubbleChart"></div>
   </main>
   

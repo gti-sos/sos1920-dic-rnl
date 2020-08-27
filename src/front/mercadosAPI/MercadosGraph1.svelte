@@ -78,7 +78,7 @@
 
 <main>
     <h2>Gráfico 1 de mercados de juegos por región</h2>
-    <Button style= "font-weight: bold;" color="info" on:click="{pop}">Atrás</Button>
+    <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p style= "font-weight: bold;" class="highcharts-description">

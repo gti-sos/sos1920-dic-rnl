@@ -1,6 +1,7 @@
 <script>
 	import Router from 'svelte-spa-router';
 
+	import about from './about.svelte';
 	import Home from './Home.svelte';
 
 	import mercados from './mercadosAPI/App.svelte';
@@ -8,6 +9,7 @@
 	import MercadosGraph1 from './mercadosAPI/MercadosGraph1.svelte';
 	import MercadosGraph2 from './mercadosAPI/MercadosGraph2.svelte';
 
+	
 	import NotFound from './NotFound.svelte';
 	
 	const routes = {
@@ -16,6 +18,7 @@
 		"/mercadosAPI":mercados,
 		"/MercadosGraph1":MercadosGraph1,
 		"/MercadosGraph2":MercadosGraph2,
+		"/about": about,
 		"*": NotFound
 	};
 </script>

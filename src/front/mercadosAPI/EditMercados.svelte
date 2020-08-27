@@ -189,7 +189,7 @@
     {#if errorMsg}
         <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
-    <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}">Atras</Button>
+    <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </main>
 
 <style>

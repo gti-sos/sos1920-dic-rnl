@@ -3,6 +3,7 @@
 		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/mercadosAPI'"> API</button>
 		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/MercadosGraph1'"> GRÁFICA 1</button> 
 		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/MercadosGraph2'"> GRÁFICA 2</button>
+		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/about'"> SOBRE MI</button>
 	</div>
 </main>
 <style>
