@@ -15,6 +15,5 @@
 
 -  **HEROKU**: [sos1920-sep-rnl](https://sos1920-sep-rnl.herokuapp.com)
 
--  **POSTMAN**:
-Trabajando...
+-  **POSTMAN**: [documenter](https://documenter.getpostman.com/view/10637473/TVCb3Vkw)
 
