@@ -2,6 +2,10 @@
 
 ## Trabajo de Septiembre
 
+
+
+[![Build Status](https://travis-ci.org/gti-sos/sos1920-sep-rnl.svg?branch=master)](https://travis-ci.org/gti-sos/sos1920-sep-rnl)
+
 - **Made by**
   - [Rubén Navarro López](https://github.com/jolaru21)
   
