@@ -79,12 +79,14 @@
 <main>
     <h2>Gráfico 1 de mercados de juegos por región</h2>
     <p></p>
-    <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+    <a href="#/" class="button">ATRAS</a>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p style= "font-weight: bold;" class="highcharts-description">
             Esta tabla presenta los 10 principales mercados de juegos clasificados según la poblacion y usuarios que tiene cada región y pais para 2020.
         </p>
+        <p></p>
+        <a href="#/" class="button">ATRAS</a>
     </figure>
     
 </main>
@@ -127,5 +129,19 @@
     .highcharts-data-table tr:hover {
         background: #f1f7ff;
     }
+
+    main{
+        text-align:center;
+        font-weight: bold;
+    }
+
+    a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    font-weight: bold;
+    text-decoration: none;
+    color: initial;
+}
     </style>
     

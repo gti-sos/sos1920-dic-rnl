@@ -12,13 +12,24 @@ import  {pop} from "svelte-spa-router";
     <h7>Mi nombre es Rubén Navarro López y esta es mi API realizada como trabajo para la asignatura SOS en el año 2020.</h7>
     <p></p>
     <h3>Video de la API: Mercados</h3>
-    <li><a href="https://youtube.com" rel="nofollow">https://youtube.com</a> (Para entrar a mi repositorio de github haz click <a href="https://github.com/Jolaru21"></a>aqui)</li>
+    <li><a href="https://youtube.com" rel="nofollow">https://youtube.com</a></li>
     <p></p>
-    <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+    <h5>Para entrar a mi repositorio de github haz click <a href="https://github.com/Jolaru21">aqui</a></h5>
+    <p></p>
+        <a href="#/" class="button">ATRAS</a>
 </main>
 
 <style>
 main{
     font-weight: bold;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    font-weight: bold;
+    text-decoration: none;
+    color: initial;
 }
 </style>

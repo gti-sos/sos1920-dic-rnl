@@ -190,7 +190,7 @@
         <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
     <p></p>
-    <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+    <a href="#/" class="button">ATRAS</a>
 </main>
 
 <style>
@@ -202,6 +202,14 @@ tr{
 }
 td{
     border: 1px solid #000;
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    font-weight: bold;
+    text-decoration: none;
+    color: initial;
 }
 
 </style>

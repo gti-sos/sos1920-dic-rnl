@@ -67,7 +67,7 @@
 
 	async function getMercado() {
 
-		console.log("Fetching mercados...");
+		console.log("Recibiendo mercados...");
 		const res = await fetch("/api/v1/mercados?offset=" + numberOfElements * offset + "&limit=" + numberOfElements);
 
 		if (res.ok) {
@@ -161,46 +161,74 @@
 				mercados = json;
 				responseAlert("Todos los países se han borrado correctamente")
 			} else {
-				errorResponse(res);
+				responseError("¡Error, La tabla ya está vacia!");
+				
 			}
 		});
+		location.reload();
+		
 	}
 
 
 	async function search(Region, Country) {
+		let offset = 0;
 		console.log("Searching data: " + Region + " and " + Country);
 		var url = "/api/v1/mercados";
 
 		if (Region != "-" && Country != "-") {
-			url = url + "?Region=" + Region + "&Country=" + Country;
+			url = url + "?Region=" + Region + "&Country=" + Country+"&";
 		} else if (Region != "-" && Country == "-") {
-			url = url + "?Region=" + Region;
+			url = url + "?Region=" + Region+"&";
 		} else if (Region == "-" && Country != "-") {
-			url = url + "?Country=" + Country;
+			url = url + "?Country=" + Country+"&";
+		} else if (Region == "-" && Country == "-") {
+			url = url+"?";
 		}
 
-		const res = await fetch(url);
+		const res = await fetch(url+"offset=" + numberOfElements * offset + "&limit=" + numberOfElements);
 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
 			mercados = json;
-			console.log("Found " + mercados.length + " mercados stats.");
+			console.log("Received " + mercados.length + " mercados.");
 
 			if (Region != "-" && Country != "-") {
-				responseAlert("Busqueda de " + Region + " en el pais " + Country + " realizada correctamente")
-			} else if (Region != "-" && Country == "-") {
-				responseAlert("Busqueda de " + Region + " realizada correctamente")
-			} else if (Region == "-" && Country != "-") {
-				responseAlert("Busqueda en el pais " + Country + " realizada correctamente")
+					if(mercados.length!=0){
+						responseAlert("Busqueda de " + Region + " en el país " + Country + " realizada correctamente")
+					}else{
+						responseError("No se ha encontrado el país "+ Country+" en la región "+Region+". Vuelve a intentarlo");
+					}
+					
+				} else if (Region != "-" && Country == "-") {
+					responseAlert("Busqueda de " + Region + " realizada correctamente")
+				} else if (Region == "-" && Country == "-") {
+					responseAlert("Busqueda de todos los paises realizada correctamente")
+				} else if (Region == "-" && Country != "-") {
+					responseAlert("Busqueda en el país " + Country + " realizada correctamente")
+				}
+			else if (mercados.length != numberOfElements) {
+				moreData = false
+			} else {
+
+				const next = await fetch(url+"offset=" + numberOfElements * (offset + 1) + "&limit=" + numberOfElements);
+				console.log("La variable NEXT tiene el estado: " + next.status)
+				const jsonNext = await next.json();
+
+
+
+				if (jsonNext.length == 0 || next.status == 404) {
+					moreData = false;
+				}
+				else {
+					moreData = true;
+				}
 			}
-		} else {
-			errorResponse(res)
-			console.log("ERROR!");
 		}
-
+		else {
+			errorResponse(res)
+		}
 	}
-
 	function addOffset(increment) {
 		offset += increment;
 		currentPage += increment;
@@ -388,7 +416,8 @@
 
 	<Button outline  style= "font-weight: bold;" color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar datos originales </Button>
 	<Button outline  style= "font-weight: bold;" on:click={deleteMercadoCompleto}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
-	<Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+	<p></p>
+        <a href="#/" class="button">ATRAS</a>
 	
 
 
@@ -397,4 +426,13 @@
 	.borde-tabla{
    		border: 1px solid #000;
 	}
+
+	a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    font-weight: bold;
+    text-decoration: none;
+    color: initial;
+}
 	</style>

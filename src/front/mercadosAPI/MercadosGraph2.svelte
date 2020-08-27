@@ -77,7 +77,23 @@
             El gráfico de burbujas muestra los ingresos en Millones de euros (€).
         </p></b>  
         <p></p>
-        <Button outline  style= "font-weight: bold;" color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+        <a href="#/" class="button">ATRAS</a>
         <div id= "bubbleChart"></div>
   </main>
   
+
+  <style>
+    main{
+        font-weight: bold;
+        text-align:center;
+    }
+
+    a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    font-weight: bold;
+    text-decoration: none;
+    color: initial;
+}
+  </style>
