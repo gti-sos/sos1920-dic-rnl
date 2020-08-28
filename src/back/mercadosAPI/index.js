@@ -8,10 +8,11 @@ module.exports = function (app) {
 		autoload: true
 	});
 
-	//const request = require('request');
-	//const express = require("express");
+	const request = require('request');
+	const express = require("express");
 	const BASE_API_URL = "/api/v1";
 
+	//DATOS
 	var initialmercados = [
 		{
 			Region: "Asia_Pacific",
@@ -86,6 +87,20 @@ module.exports = function (app) {
 		}
 	];
 
+	//INTEGRACIONES
+	//API FERNANDO CAMPOS OLIAS
+	app.use("/api/v1/cbp", function(req, res) {
+		var url = "http://sos1920-sep-fco.herokuapp.com" + req.baseUrl + req.url;
+		console.log("GET API FERNANDO");
+		console.log("URL_Fernando: "+url);
+		console.log('piped: '+req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	  });
+
+
+
+
+	//FUNCIONES
 	function deleteIDs(mercados) {
 		mercados.forEach((m) => {
 			delete m._id;

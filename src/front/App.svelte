@@ -9,8 +9,12 @@
 	import MercadosGraph1 from './mercadosAPI/MercadosGraph1.svelte';
 	import MercadosGraph2 from './mercadosAPI/MercadosGraph2.svelte';
 
-	
 	import NotFound from './NotFound.svelte';
+
+	//INTEGRACIONES
+	import IntegracionFernando from  './mercadosAPI/IntegrationGraph1.svelte';
+	
+	
 	
 	const routes = {
 		"/": Home,
@@ -18,6 +22,7 @@
 		"/mercadosAPI":mercados,
 		"/MercadosGraph1":MercadosGraph1,
 		"/MercadosGraph2":MercadosGraph2,
+		"/IntegrationGraph1":IntegracionFernando,
 		"/about": about,
 		"*": NotFound
 	};

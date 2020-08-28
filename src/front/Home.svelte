@@ -5,6 +5,9 @@
 		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/MercadosGraph2'"> GRÁFICA 2</button>
 		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/about'"> SOBRE MI</button>
 	</div>
+	<div2>
+		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/IntegrationGraph1'"> INTEGRACION 1</button>
+	</div2>
 </main>
 <style>
 	.btn-outline-success {
