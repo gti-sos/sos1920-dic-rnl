@@ -417,7 +417,7 @@
 	<Button outline  style= "font-weight: bold;" color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar datos originales </Button>
 	<Button outline  style= "font-weight: bold;" on:click={deleteMercadoCompleto}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
 	<p></p>
-        <a href="#/" class="button">ATRAS</a>
+	<button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
 	
 
 

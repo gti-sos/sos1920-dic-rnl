@@ -190,7 +190,7 @@
         <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
     <p></p>
-    <a href="#/" class="button">ATRAS</a>
+    <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
 </main>
 
 <style>

@@ -7,6 +7,9 @@
 	</div>
 	<div2>
 		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/IntegrationGraph1'"> INTEGRACION 1</button>
+		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/IntegrationGraph2'"> INTEGRACION 2</button>
+		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/IntegrationGraph3'"> INTEGRACION 3</button>
+		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/IntegrationGraph4'"> INTEGRACION 4</button>
 	</div2>
 </main>
 <style>
@@ -26,6 +29,9 @@
 		color: #9DFCE9;
 		border-color: #040661;
 		background-color: blue;
+	}
+	main{
+		text-align:center;
 	}
 	</style>
 	

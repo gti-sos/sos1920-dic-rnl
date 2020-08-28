@@ -40,7 +40,7 @@
         labels: true
       },
       bubble: {
-        maxR: 300
+        maxR: 60
       },
       axis: {
         x: {
@@ -78,7 +78,7 @@
           El gráfico de burbujas muestra los ingresos en Millones de euros (€).
       </p></b>  
       <p></p>
-      <a href="#/" class="button">ATRAS</a>
+      <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
   </main>
   
 

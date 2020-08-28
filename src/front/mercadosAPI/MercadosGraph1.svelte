@@ -79,14 +79,14 @@
 <main>
     <h2>Gráfico 1 de mercados de juegos por región</h2>
     <p></p>
-    <a href="#/" class="button">ATRAS</a>
+    <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p style= "font-weight: bold;" class="highcharts-description">
             Esta tabla presenta los 10 principales mercados de juegos clasificados según la poblacion y usuarios que tiene cada región y pais para 2020.
         </p>
         <p></p>
-        <a href="#/" class="button">ATRAS</a>
+        <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
     </figure>
     
 </main>

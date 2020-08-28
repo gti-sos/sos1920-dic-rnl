@@ -16,7 +16,7 @@ import  {pop} from "svelte-spa-router";
     <p></p>
     <h5>Para entrar a mi repositorio de github haz click <a href="https://github.com/Jolaru21">aqui</a></h5>
     <p></p>
-        <a href="#/" class="button">ATRAS</a>
+    <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
 </main>
 
 <style>
