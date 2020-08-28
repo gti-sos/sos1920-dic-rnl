@@ -40,7 +40,7 @@
         labels: true
       },
       bubble: {
-        maxR: 70
+        maxR: 300
       },
       axis: {
         x: {
@@ -51,8 +51,8 @@
           max: data_revenues.length-2
         },
         y: {
-          min: -2,
-          max: 45
+          min: -15,
+          max: 60
         }
       },
       bindto: "#bubbleChart"
