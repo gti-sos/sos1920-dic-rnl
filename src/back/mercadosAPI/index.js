@@ -170,19 +170,19 @@ module.exports = function (app) {
 	// GET yyyy/XXX/zzz
 	app.get(BASE_API_URL + "/mercados/:Region/:Country", (req, res) => {
 
-		var country = req.params.Country;
 		var region = req.params.Region;
-
-		db.find({ Region: region, Country: country }, (err, mercados) => {
+		var country = req.params.Country;
+	
+		db.find({ Country: country, Region: region }, (err, mercados) => {
 			deleteIDs(mercados);
 			res.send(JSON.stringify(mercados[0], null, 2));
 			console.log("Data sent:" + JSON.stringify(mercados[0], null, 2));
 			if (err == !0) {
 				res.sendStatus(404, "COUNTRY NOT FOUND");
 			}
-
+	
 		});
-
+	
 	});
 
 	// POST 
