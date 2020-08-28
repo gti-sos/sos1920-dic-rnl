@@ -72,13 +72,13 @@
   
   <main>
     <h2>Gráfica 2 Billboard</h2>
-    
-        <b><p>
-            El gráfico de burbujas muestra los ingresos en Millones de euros (€).
-        </p></b>  
-        <p></p>
-        <a href="#/" class="button">ATRAS</a>
         <div id= "bubbleChart"></div>
+
+        <b><p>
+          El gráfico de burbujas muestra los ingresos en Millones de euros (€).
+      </p></b>  
+      <p></p>
+      <a href="#/" class="button">ATRAS</a>
   </main>
   
 
