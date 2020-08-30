@@ -22,10 +22,11 @@
     console.log("fetch a " + url);
     const resData_1 = await fetch(url);
     let MyData_1 = await resData_1.json();
-    let avg_1 = Array.from(new Set(MyData_1.map((d) => {return parseInt(d.yfed);})));
+    let yfed = Array.from(new Set(MyData_1.map((d) => {return parseInt(d.yfed);})));
     console.log("Datos Fernando:");
-    console.log(avg_1);
-
+    let tamaño = MyData.length;
+    let y= yfed.slice(0,parseInt(tamaño)); 
+    console.log(y);
     
     Highcharts.chart('container', {
         chart: {
@@ -81,7 +82,7 @@
             data: population
         }, {
             name: 'Yfed',
-            data: avg_1
+            data: y
         }]
     });
     }
@@ -100,6 +101,7 @@
     
     <main>
         <h2>Integraciones con la API de Fernando</h2>
+        <h5>Los datos no guardan relación alguna. </h5>
         <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
         <figure class="highcharts-figure">
             <div id="container"></div>

@@ -87,17 +87,60 @@ module.exports = function (app) {
 		}
 	];
 
-	//INTEGRACIONES
+	//INTEGRACIONES DE COMPAÑEROS
 	//API FERNANDO CAMPOS OLIAS
-	app.use("/api/v1/cbp", function(req, res) {
+	app.use("/api/v1/cbp", function (req, res) {
 		var url = "http://sos1920-sep-fco.herokuapp.com" + req.baseUrl + req.url;
 		console.log("GET API FERNANDO");
-		console.log("URL_Fernando: "+url);
-		console.log('piped: '+req.baseUrl + req.url);
+		console.log("URL_Fernando: " + url);
+		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
-	  });
+	});
+
+	//API GRUPO 25
+	app.use("/api/v1/countries_for_equality_stats", function (req, res) {
+		var url = "http://sos1920-25.herokuapp.com" + req.baseUrl + req.url;
+		console.log("GET API GRUPO 25");
+		console.log("URL_GRUPO_25: " + url);
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+	//API GRUPO 11
+	app.use("/api/v2/crime-rate-stats/", function (req, res) {
+		var url = "http://sos1920-11.herokuapp.com" + req.baseUrl + req.url;
+		console.log("GET API GRUPO 11");
+		console.log("URL_GRUPO_11: " + url);
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+	//API GRUPO 9
+	app.use("/api/v1/health_public", function (req, res) {
+		var url = "https://sos1920-05.herokuapp.com" + req.baseUrl + req.url;
+		console.log("GET API GRUPO 5");
+		console.log("URL_GRUPO_5: " + url);
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
 
 
+	//INTEGRACIONES EXTERNAS
+
+	app.use("/v2/countries", function (req, res) {
+		var url = "https://corona.lmao.ninja" + req.baseUrl + req.url;
+		console.log("GET API EXTERNA 1");
+		console.log("URL_GRUPO_EXTERNA_1: " + url);
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+	app.use("/v2/countries?yesterday=false&sort=deaths&allowNull=true", function (req, res) {
+		var url = "https://disease.sh" + req.baseUrl + req.url;
+		console.log("GET API EXTERNA 2");
+		console.log("URL_GRUPO_EXTERNA_2: " + url);
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
 
 
 	//FUNCIONES
@@ -172,7 +215,7 @@ module.exports = function (app) {
 
 		var region = req.params.Region;
 		var country = req.params.Country;
-	
+
 		db.find({ Country: country, Region: region }, (err, mercados) => {
 			deleteIDs(mercados);
 			res.send(JSON.stringify(mercados[0], null, 2));
@@ -180,9 +223,9 @@ module.exports = function (app) {
 			if (err == !0) {
 				res.sendStatus(404, "COUNTRY NOT FOUND");
 			}
-	
+
 		});
-	
+
 	});
 
 	// POST 

@@ -10,28 +10,28 @@
         let MyData = await resData.json();
 
         let regions = Array.from(MyData.map((d) => { return d.Region + " " + d.Country; }));
+        let countries = Array.from(MyData.map((d) => { return d.Country; }));
         let population = Array.from(MyData.map((d) => { return parseFloat(d.Population); }));
         let internet_pop = Array.from(MyData.map((d) => { return parseFloat(d.Internet_pop); }));
         let revenues = Array.from(MyData.map((d) => { return parseFloat(d.Revenues); }));
+        console.log(population)
 
-
-        const url = "/api/v1/health_public";
+        const url = "/v2/countries?yesterday=false&sort=deaths&allowNull=true";
         console.log("fetch a " + url);
         const resData_1 = await fetch(url);
         let MyData_1 = await resData_1.json();
-        let ps = Array.from(new Set(MyData_1.map((d) => { return parseFloat(d.public_spending); })));
-        console.log("Datos grupo 5:");
+        let recovered = Array.from(new Set(MyData_1.map((d) => { return parseInt(d.todayRecovered); })));
+        console.log("Datos externos sobre el covid:");
         let tamaño = MyData.length;
-        let p= ps.slice(0,parseInt(tamaño));
-        console.log(p);
-
+        let r= recovered.slice(0,parseInt(tamaño));
+        console.log(r);
 
         Highcharts.chart('container', {
             chart: {
                 type: 'bar'
             },
             title: {
-                text: 'Energias Renovables por regiones'
+                text: 'RECUPERADOS POR EL COVID'
             },
             xAxis: {
                 categories: regions
@@ -51,12 +51,12 @@
                 }
             },
             series: [{
-                name: 'Ingresos',
-                data: revenues
+                name: 'Poblacion en Millones',
+                data: population
 
             }, {
-                name: 'Gasto Publico',
-                data: p
+                name: 'Recuperados',
+                data: r
             }]
         });
 
@@ -76,13 +76,13 @@
 </svelte:head>
 
 <main>
-    <h2>Integraciones con la API del grupo 5 mezclados con mi API. </h2>
+    <h2>Integraciones con la API externa mezclados con mi API. </h2>
     <h5>Los datos no guardan relación alguna. </h5>
     <button type="button" onclick="window.location.href='#/'"> ATRAS</button>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Se muestran los datos de la API del grupo 5.
+            Se muestran los datos de la API externa.
         </p>
     </figure>
     <button type="button" onclick="window.location.href='#/'"> ATRAS</button>

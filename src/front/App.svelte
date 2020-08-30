@@ -17,7 +17,9 @@
 	import IntegracionFernando from  './mercadosAPI/IntegrationGraph1.svelte';
 	import Integracion2 from  './mercadosAPI/IntegrationGraph2.svelte';
 	import Integracion3 from  './mercadosAPI/IntegrationGraph3.svelte';	
-	import Integracion4 from  './mercadosAPI/IntegrationGraph4.svelte';		
+	import Integracion4 from  './mercadosAPI/IntegrationGraph4.svelte';
+	import Integracion5 from  './mercadosAPI/ExternalIntegration1.svelte';
+	import Integracion6 from  './mercadosAPI/ExternalIntegration2.svelte';	
 	
 	
 	const routes = {
@@ -30,6 +32,8 @@
 		"/IntegrationGraph2":Integracion2,
 		"/IntegrationGraph3":Integracion3,
 		"/IntegrationGraph4":Integracion4,
+		"/ExternalIntegration1":Integracion5,
+		"/ExternalIntegration2":Integracion6,
 		"/about": about,
 		"*": NotFound
 	};
