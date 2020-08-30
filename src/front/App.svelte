@@ -7,6 +7,7 @@
 	import mercados from './mercadosAPI/App.svelte';
 	import Editmercados from './mercadosAPI/EditMercados.svelte';
 	import NotFound from './NotFound.svelte';
+	import integrations from './integrations.svelte';
 	//GRAFOS PROPIOS
 	import MercadosGraph1 from './mercadosAPI/MercadosGraph1.svelte';
 	import MercadosGraph2 from './mercadosAPI/MercadosGraph2.svelte';
@@ -28,6 +29,7 @@
 		"/mercadosAPI":mercados,
 		"/MercadosGraph1":MercadosGraph1,
 		"/MercadosGraph2":MercadosGraph2,
+		"/integrations":integrations,
 		"/IntegrationGraph1":IntegracionFernando,
 		"/IntegrationGraph2":Integracion2,
 		"/IntegrationGraph3":Integracion3,
