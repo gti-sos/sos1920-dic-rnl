@@ -4,28 +4,35 @@
 	<div class="div-home" style="text-align:center">
 		<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/mercadosAPI'">
 			API</button>
-		<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/MercadosGraph1'"> GRÁFICA
-			1</button>
+	</div>
+	<div class="div-home" style="text-align:center">
+	<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/MercadosGraph1'"> GRÁFICA
+		1</button>
+	</div>
+	<div class="div-home" style="text-align:center">
 		<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/MercadosGraph2'"> GRÁFICA
 			2</button>
-		<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/integrations'">
-			INTEGRACIONES</button>
-		<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/about'"> SOBRE
-			MI</button>
+	</div>
+	<div class="div-home" style="text-align:center">
+	<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/integrations'">
+		INTEGRACIONES</button>
+	</div>
+	<div class="div-home" style="text-align:center">
+	<button type="button" class="btn btn-outline-success" onclick="window.location.href='#/about'"> SOBRE
+		MI</button>
 	</div>
 </main>
 <style>
 	.btn-outline-success {
-		margin-top: 90px;
+		margin-top: 40px;
 		color: chocolate;
 		border-color: #040661;
-		background-color:peachpuff;
+		background-color: peachpuff;
 		border-radius: 15px;
-		padding: 5px;
-		margin-left: 40px;
-		margin-right: 40px;
-		font-weight: 650;
+		padding: 8px;
+		font-weight: 500px;
 		font-size: 50px;
+		margin-bottom:40px;
 	}
 
 	.btn-outline-success:hover {
@@ -37,5 +44,6 @@
 	main {
 		font-weight: bold;
 		text-align: center;
+
 	}
 </style>
