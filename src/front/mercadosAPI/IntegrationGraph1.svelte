@@ -102,14 +102,14 @@
     <main>
         <h2>Integraciones con la API de Fernando</h2>
         <h5>Los datos no guardan relación alguna. </h5>
-        <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
+        <button type="button"  onclick="window.location.href='#/integrations'"> ATRAS</button>
         <figure class="highcharts-figure">
             <div id="container"></div>
             <p class="highcharts-description">
                 Se muestran los datos de la API de fernando junto a las regiones de mi API.
             </p>
         </figure>
-        <button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
+        <button type="button"  onclick="window.location.href='#/integrations'"> ATRAS</button>
     
 
 

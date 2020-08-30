@@ -78,14 +78,14 @@
 <main>
     <h2>Integraciones con la API del grupo 11 mezclados con mi API. </h2>
     <h5>Los datos no guardan relación alguna. </h5>
-    <button type="button" onclick="window.location.href='#/'"> ATRAS</button>
+    <button type="button" onclick="window.location.href='#/integrations'"> ATRAS</button>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
             Se muestran los datos de la API del grupo 11.
         </p>
     </figure>
-    <button type="button" onclick="window.location.href='#/'"> ATRAS</button>
+    <button type="button" onclick="window.location.href='#/integrations'"> ATRAS</button>
 
 
 
