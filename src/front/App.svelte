@@ -14,7 +14,7 @@
 
 	
 
-	//INTEGRACIONES
+	//INTEGRACIONES INTERNAS Y EXTERNAS
 	import IntegracionFernando from  './mercadosAPI/IntegrationGraph1.svelte';
 	import Integracion2 from  './mercadosAPI/IntegrationGraph2.svelte';
 	import Integracion3 from  './mercadosAPI/IntegrationGraph3.svelte';	

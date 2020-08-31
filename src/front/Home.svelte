@@ -22,7 +22,7 @@
 		background-color: peachpuff;
 		border-radius: 15px;
 		padding: 8px;
-		font-weight: 500px;
+		font-weight: 501px;
 		font-size: 50px;
 		margin-bottom: 40px;
 	}
