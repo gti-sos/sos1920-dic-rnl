@@ -31,10 +31,11 @@
 	let currentCountry = "-";
 	let currentRegion = "-";
 
-	let numberOfElements = 5;
+	let numberOfElements = 7;
 	let offset = 0;
 	let currentPage = 1;
 	let moreData = true;
+	let pageButton = true;
 
 	onMount(getMercado);
 	onMount(getCountryRegion);
@@ -192,6 +193,7 @@
 			const json = await res.json();
 			mercados = json;
 			console.log("Received " + mercados.length + " mercados.");
+			pageButton=false
 
 			if (Region != "-" && Country != "-") {
 					if(mercados.length!=0){
@@ -214,9 +216,6 @@
 				const next = await fetch(url+"offset=" + numberOfElements * (offset + 1) + "&limit=" + numberOfElements);
 				console.log("La variable NEXT tiene el estado: " + next.status)
 				const jsonNext = await next.json();
-
-
-
 				if (jsonNext.length == 0 || next.status == 404) {
 					moreData = false;
 				}
@@ -386,6 +385,7 @@
 		</Table>
 	{/await}
  
+	{#if pageButton == true}
 	<Pagination style="float:right;" ariaLabel="Cambiar de página">
 
 
@@ -413,12 +413,17 @@
 		</PaginationItem>
 
 	</Pagination>
+	{/if}
 
 	<Button outline  style= "font-weight: bold;" color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar datos originales </Button>
+	{#if pageButton==false}
+	<Button outline  style= "font-weight: bold;" color="secondary" on:click={pageButton=true} on:click={getMercado}> Regresar a la paginacion</Button>
+	{/if}
 	<Button outline  style= "font-weight: bold;" on:click={deleteMercadoCompleto}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
 	<p></p>
+	{#if pageButton==true}
 	<button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
-	
+	{/if}
 
 
 </main>
