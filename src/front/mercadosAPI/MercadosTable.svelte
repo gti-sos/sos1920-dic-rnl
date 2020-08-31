@@ -113,7 +113,7 @@
 			|| newMercado.Region == ""
 			|| newMercado.Region == null) {
 
-				responseWarning("Se debe incluir el nombre del país y la region obligatoriamente");
+			responseWarning("Se debe incluir el nombre del país y la region obligatoriamente");
 		} else {
 			const res = await fetch("/api/v1/mercados", {
 				method: "POST",
@@ -163,11 +163,11 @@
 				responseAlert("Todos los países se han borrado correctamente")
 			} else {
 				responseError("¡Error, La tabla ya está vacia!");
-				
+
 			}
 		});
 		location.reload();
-		
+
 	}
 
 
@@ -177,55 +177,42 @@
 		var url = "/api/v1/mercados";
 
 		if (Region != "-" && Country != "-") {
-			url = url + "?Region=" + Region + "&Country=" + Country+"&";
+			url = url + "?Region=" + Region + "&Country=" + Country + "&";
 		} else if (Region != "-" && Country == "-") {
-			url = url + "?Region=" + Region+"&";
+			url = url + "?Region=" + Region + "&";
 		} else if (Region == "-" && Country != "-") {
-			url = url + "?Country=" + Country+"&";
+			url = url + "?Country=" + Country + "&";
 		} else if (Region == "-" && Country == "-") {
-			url = url+"?";
+			url = url + "?";
 		}
 
-		const res = await fetch(url+"offset=" + numberOfElements * offset + "&limit=" + numberOfElements);
+		const res = await fetch(url);
 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
 			mercados = json;
 			console.log("Received " + mercados.length + " mercados.");
-			pageButton=false
+			pageButton = false
 
 			if (Region != "-" && Country != "-") {
-					if(mercados.length!=0){
-						responseAlert("Busqueda de " + Region + " en el país " + Country + " realizada correctamente")
-					}else{
-						responseError("No se ha encontrado el país "+ Country+" en la región "+Region+". Vuelve a intentarlo");
-					}
-					
-				} else if (Region != "-" && Country == "-") {
-					responseAlert("Busqueda de " + Region + " realizada correctamente")
-				} else if (Region == "-" && Country == "-") {
-					responseAlert("Busqueda de todos los paises realizada correctamente")
-				} else if (Region == "-" && Country != "-") {
-					responseAlert("Busqueda en el país " + Country + " realizada correctamente")
+				if (mercados.length != 0) {
+					responseAlert("Busqueda de " + Region + " en el país " + Country + " realizada correctamente")
+				} else {
+					responseError("No se ha encontrado el país " + Country + " en la región " + Region + ". Vuelve a intentarlo");
 				}
-			else if (mercados.length != numberOfElements) {
-				moreData = false
-			} else {
 
-				const next = await fetch(url+"offset=" + numberOfElements * (offset + 1) + "&limit=" + numberOfElements);
-				console.log("La variable NEXT tiene el estado: " + next.status)
-				const jsonNext = await next.json();
-				if (jsonNext.length == 0 || next.status == 404) {
-					moreData = false;
-				}
-				else {
-					moreData = true;
-				}
+			} else if (Region != "-" && Country == "-") {
+				responseAlert("Busqueda de " + Region + " realizada correctamente")
+			} else if (Region == "-" && Country == "-") {
+				responseAlert("Busqueda de todos los paises realizada correctamente")
+			} else if (Region == "-" && Country != "-") {
+				responseAlert("Busqueda en el país " + Country + " realizada correctamente")
 			}
-		}
-		else {
-			errorResponse(res)
+
+			else {
+				errorResponse(res)
+			}
 		}
 	}
 	function addOffset(increment) {
@@ -284,23 +271,23 @@
 		var status = res.status
 		switch (status) {
 			case 400:
-			responseError("Codigo de error: " + status + '\n' + ".Los datos introduccidos no son validos");
+				responseError("Codigo de error: " + status + '\n' + ".Los datos introduccidos no son validos");
 				break;
 			case 401:
-			responseError("Codigo de error: " + status + '\n' + ".No tiene permisos para realizar esta accion");
+				responseError("Codigo de error: " + status + '\n' + ".No tiene permisos para realizar esta accion");
 				break;
 			case 404:
-			responseError("Codigo de error: " + status + '\n' + ".Página no encontrada");
+				responseError("Codigo de error: " + status + '\n' + ".Página no encontrada");
 				break;
 			case 405:
-			responseError("Codigo de error: " + status + '\n' + ".Metodo no permitido");
+				responseError("Codigo de error: " + status + '\n' + ".Metodo no permitido");
 				break;
 			case 409:
-			responseError("Codigo de error: " + status + '\n' + ".Conflicto con la operacion");
+				responseError("Codigo de error: " + status + '\n' + ".Conflicto con la operacion");
 				break;
 			case 420:
-			responseError("Codigo de error: " + status + '\n' + ".Región y País ya existentes, editelo o cambie de país.");
-				break;	
+				responseError("Codigo de error: " + status + '\n' + ".Región y País ya existentes, editelo o cambie de país.");
+				break;
 
 			default:
 				if (status != 420 && status != 400 && status != 401 && status != 404 && status != 405 && status != 409 && status != 200 && status != 2001) {
@@ -317,7 +304,7 @@
 
 </script>
 
-<main style= "font-weight: bold;">
+<main style="font-weight: bold;">
 	<div role="alert" id="div_alert" style="display: none;">
 	</div>
 	{#await mercados}
@@ -416,14 +403,11 @@
 	{/if}
 
 	<Button outline  style= "font-weight: bold;" color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar datos originales </Button>
-	{#if pageButton==false}
-	<Button outline  style= "font-weight: bold;" color="secondary" on:click={pageButton=true} on:click={getMercado}> Regresar a la paginacion</Button>
-	{/if}
+	
 	<Button outline  style= "font-weight: bold;" on:click={deleteMercadoCompleto}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
 	<p></p>
-	{#if pageButton==true}
 	<button type="button"  onclick="window.location.href='#/'"> ATRAS</button>
-	{/if}
+	
 
 
 </main>
