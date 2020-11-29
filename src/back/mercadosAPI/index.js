@@ -166,8 +166,6 @@ module.exports = function (app) {
 	app.get(BASE_API_URL + "/mercados", (req, res) => {
 		console.log("New GET mercados");
 
-		//if(req.query.Region) request["Region"] = req.query.Region;
-		//if(req.query.Country) request["Country"] = req.query.Country;
 		if (req.query.Population) req.query.Population =
 			parseFloat(req.query.Population);
 		if (req.query.Internet_pop) req.query.Internet_pop =

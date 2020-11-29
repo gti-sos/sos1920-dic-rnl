@@ -177,13 +177,13 @@
 		var url = "/api/v1/mercados";
 
 		if (Region != "-" && Country != "-") {
-			url = url + "?Region=" + Region + "&Country=" + Country + "&";
+			url = url + "?Region=" + Region + "&Country=" + Country;
 		} else if (Region != "-" && Country == "-") {
-			url = url + "?Region=" + Region + "&";
+			url = url + "?Region=" + Region;
 		} else if (Region == "-" && Country != "-") {
-			url = url + "?Country=" + Country + "&";
+			url = url + "?Country=" + Country;
 		} else if (Region == "-" && Country == "-") {
-			url = url + "?";
+			url = url;
 		}
 
 		const res = await fetch(url);
