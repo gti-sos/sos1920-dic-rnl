@@ -183,7 +183,7 @@
 		} else if (Region == "-" && Country != "-") {
 			url = url + "?Country=" + Country;
 		} else if (Region == "-" && Country == "-") {
-			url = url = "?";
+			url = url + "?";
 		}
 
 		const res = await fetch(url);
