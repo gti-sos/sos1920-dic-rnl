@@ -126,24 +126,18 @@
             case 400:
                 responseError("Codigo de error: " + status + '\n' + ".Los datos introduccidos no son validos");
                 break;
-            case 401:
-                responseError("Codigo de error: " + status + '\n' + ".No tiene permisos para realizar esta accion");
-                break;
             case 404:
                 responseError("Codigo de error: " + status + '\n' + ".Página no encontrada");
                 break;
             case 405:
                 responseError("Codigo de error: " + status + '\n' + ".Metodo no permitido");
                 break;
-            case 409:
-                responseError("Codigo de error: " + status + '\n' + ".Conflicto con la operacion");
-                break;
             case 420:
                 responseError("Codigo de error: " + status + '\n' + ".Región y País ya existentes, editelo o cambie de país.");
                 break;
 
             default:
-                if (status != 420 && status != 400 && status != 401 && status != 404 && status != 405 && status != 409 && status != 200 && status != 2001) {
+                if (status != 420 && status != 400 && status != 404 && status != 405) {
                     responseError("Codigo de error: " + status + '\n' + ".Error de desconocido por el sistema")
                     break;
 
