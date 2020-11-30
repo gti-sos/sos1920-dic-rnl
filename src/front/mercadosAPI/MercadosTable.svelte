@@ -199,7 +199,7 @@
 				if (mercados.length != 0) {
 					responseAlert("Busqueda de " + Region + " en el país " + Country + " realizada correctamente")
 				} else {
-					responseError("No se ha encontrado el país " + Country + " en la región " + Region + ". Vuelve a intentarlo");
+					responseError("Codigo de error: 404. " +'\n' + "No se ha encontrado el país " + Country + " en la región " + Region + ". Vuelve a intentarlo");
 				}
 
 			} else if (Region != "-" && Country == "-") {
