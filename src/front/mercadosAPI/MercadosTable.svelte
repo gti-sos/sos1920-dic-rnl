@@ -271,7 +271,7 @@
 		var status = res.status
 		switch (status) {
 			case 400:
-				responseError("Codigo de error: " + status + '\n' + ".Los datos introduccidos no son validos");
+				responseError("Codigo de error: " + status + '\n' + ".Los datos introducidos no son validos");
 				break;
 			case 401:
 				responseError("Codigo de error: " + status + '\n' + ".No tiene permisos para realizar esta accion");
