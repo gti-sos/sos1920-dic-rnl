@@ -205,6 +205,9 @@ module.exports = function (app) {
 			deleteIDs(mercados);
 			res.send(JSON.stringify(mercados, null, 2));
 			console.log("Data sent:" + JSON.stringify(mercados, null, 2));
+			if (err == !0) {
+				res.sendStatus(404, "REGION NOT FOUND");
+			}
 		});
 	});
 
