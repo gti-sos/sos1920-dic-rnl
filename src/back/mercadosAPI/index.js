@@ -191,10 +191,14 @@ module.exports = function (app) {
 
 
 		db.find(par).skip(offset).limit(limit).exec((err, mercados) => {
+			if(mercados.length==0&&Object.keys(par).length>1){
+				res.sendStatus(404,"NOT FOUND");
+			}else{
 			deleteIDs(mercados);
 			res.send(JSON.stringify(mercados, null, 2));
 
 			console.log("Data sent: " + JSON.stringify(mercados, null, 2));
+			}
 		});
 	});
 	// GET yyyy/XXX

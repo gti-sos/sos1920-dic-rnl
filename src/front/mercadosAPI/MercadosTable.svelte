@@ -198,9 +198,7 @@
 			if (Region != "-" && Country != "-") {
 				if (mercados.length != 0) {
 					responseAlert("Busqueda de " + Region + " en el país " + Country + " realizada correctamente")
-				} else {
-					responseError("Codigo de error: 404. " +'\n' + "No se ha encontrado el país " + Country + " en la región " + Region + ". Vuelve a intentarlo");
-				}
+				} 
 
 			} else if (Region != "-" && Country == "-") {
 				responseAlert("Busqueda de " + Region + " realizada correctamente")
@@ -209,11 +207,10 @@
 			} else if (Region == "-" && Country != "-") {
 				responseAlert("Busqueda en el país " + Country + " realizada correctamente")
 			}
-
-			else {
+		}
+		else {
 				errorResponse(res)
 			}
-		}
 	}
 	function addOffset(increment) {
 		offset += increment;
@@ -267,14 +264,14 @@
 		alert_element.innerHTML = "";
 	}
 
-	function errorResponse(res, msg) {
+	function errorResponse(res) {
 		var status = res.status
 		switch (status) {
 			case 400:
 				responseError("Codigo de error: " + status + '\n' + ".Los datos introducidos no son validos");
 				break;
 			case 404:
-				responseError("Codigo de error: " + status + '\n' + ".Página no encontrada");
+				responseError("Codigo de error: " + status + '\n' +".No se ha encontrado el país en la región seleccionada. Vuelve a intentarlo");
 				break;
 			case 405:
 				responseError("Codigo de error: " + status + '\n' + ".Metodo no permitido");
