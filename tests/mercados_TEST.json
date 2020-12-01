@@ -1,7 +1,7 @@
 {
-	"id": "b1df7769-5661-4d57-8710-a15ba5e16772",
+	"id": "e9f2ffb8-8830-411b-b0d1-d1dc6850ec58",
 	"name": "sos1920-dic-rnl",
-	"timestamp": "2020-08-27T16:37:44.612Z",
+	"timestamp": "2020-12-01T12:16:06.458Z",
 	"collection_id": "f68fa3ac-6084-447f-95da-db8f52507c16",
 	"folder_id": 0,
 	"environment_id": "1fa0958e-563c-476e-bac3-ee6b9726ff66",
@@ -12,7 +12,7 @@
 			"id": "2f4ca58a-a047-40da-8c78-54adf73ef82a",
 			"name": "get mercados loadInitialData",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/loadInitialData",
-			"time": 461,
+			"time": 125,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -27,7 +27,7 @@
 				}
 			},
 			"times": [
-				461
+				125
 			],
 			"allTests": [
 				{
@@ -39,7 +39,7 @@
 			"id": "15c8a952-b59a-4c2a-b249-f91b616b4c99",
 			"name": "get mercados",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 104,
+			"time": 102,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -54,7 +54,7 @@
 				}
 			},
 			"times": [
-				104
+				102
 			],
 			"allTests": [
 				{
@@ -66,7 +66,7 @@
 			"id": "60233508-4d50-4e1a-857a-29fc17c26703",
 			"name": "post mercados",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 99,
+			"time": 122,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -81,7 +81,7 @@
 				}
 			},
 			"times": [
-				99
+				122
 			],
 			"allTests": [
 				{
@@ -120,7 +120,7 @@
 			"id": "41748b97-8e2b-46ba-bce6-c203f9727979",
 			"name": "post mercados /Region",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Region",
-			"time": 100,
+			"time": 111,
 			"responseCode": {
 				"code": 405,
 				"name": "Method Not Allowed"
@@ -135,7 +135,7 @@
 				}
 			},
 			"times": [
-				100
+				111
 			],
 			"allTests": [
 				{
@@ -174,7 +174,7 @@
 			"id": "a26f8683-698b-4812-90d1-3faaa2f91fa0",
 			"name": "get mercados/Region",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe",
-			"time": 109,
+			"time": 107,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -189,7 +189,7 @@
 				}
 			},
 			"times": [
-				109
+				107
 			],
 			"allTests": [
 				{
@@ -201,7 +201,7 @@
 			"id": "f5a252b4-1ff4-40a5-9b99-4821bd8c9c85",
 			"name": "get mercados/Region/Country",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe/Spain",
-			"time": 104,
+			"time": 108,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -216,7 +216,7 @@
 				}
 			},
 			"times": [
-				104
+				108
 			],
 			"allTests": [
 				{
@@ -228,7 +228,7 @@
 			"id": "091d6255-c04c-4479-a004-65628b9139bb",
 			"name": "put mercados",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 105,
+			"time": 108,
 			"responseCode": {
 				"code": 405,
 				"name": "Method Not Allowed"
@@ -243,7 +243,7 @@
 				}
 			},
 			"times": [
-				105
+				108
 			],
 			"allTests": [
 				{
@@ -255,7 +255,7 @@
 			"id": "332b3b22-3a78-4d94-89bd-cc428098e7e5",
 			"name": "put mercados/Region/Country",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe/Spain",
-			"time": 100,
+			"time": 127,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -270,7 +270,7 @@
 				}
 			},
 			"times": [
-				100
+				127
 			],
 			"allTests": [
 				{
@@ -282,7 +282,7 @@
 			"id": "81b6121a-af3d-4de2-8ff2-1081b458408c",
 			"name": "get busqueda 1",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?Region=Europe&Country=Spain",
-			"time": 98,
+			"time": 111,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -302,7 +302,7 @@
 				}
 			},
 			"times": [
-				98
+				111
 			],
 			"allTests": [
 				{
@@ -315,7 +315,7 @@
 			"id": "86d3dc36-f5a0-4cf5-9850-4b6a33148735",
 			"name": "get busqueda 2",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?Country=Spain",
-			"time": 98,
+			"time": 104,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -330,7 +330,7 @@
 				}
 			},
 			"times": [
-				98
+				104
 			],
 			"allTests": [
 				{
@@ -342,7 +342,7 @@
 			"id": "0f4faa38-6fb8-4611-be06-771be0c334da",
 			"name": "get busqueda 3",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?Region=Europe&Country=Spain",
-			"time": 104,
+			"time": 106,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -362,7 +362,7 @@
 				}
 			},
 			"times": [
-				104
+				106
 			],
 			"allTests": [
 				{
@@ -375,7 +375,7 @@
 			"id": "695d6279-b401-4a1d-9f3b-b14c4e59a396",
 			"name": "get paginacion 1",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?offset=3&limit=7",
-			"time": 101,
+			"time": 107,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -390,7 +390,7 @@
 				}
 			},
 			"times": [
-				101
+				107
 			],
 			"allTests": [
 				{
@@ -402,7 +402,7 @@
 			"id": "a0162344-e40b-42be-ba02-17b2a8fac91c",
 			"name": "get paginacion 2",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?offset=6&limit=2",
-			"time": 99,
+			"time": 108,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -422,7 +422,7 @@
 				}
 			},
 			"times": [
-				99
+				108
 			],
 			"allTests": [
 				{
@@ -435,6 +435,33 @@
 			"id": "78131955-d30c-4fc4-93b8-3c70393ebe3f",
 			"name": "delete mercados/Region/Country",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe/Spain",
+			"time": 107,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				107
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "321e2910-b21a-432a-a7f9-ce80d1298aed",
+			"name": "delete mercados/Region",
+			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe",
 			"time": 109,
 			"responseCode": {
 				"code": 200,
@@ -459,37 +486,10 @@
 			]
 		},
 		{
-			"id": "321e2910-b21a-432a-a7f9-ce80d1298aed",
-			"name": "delete mercados/Region",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe",
-			"time": 100,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				100
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
 			"id": "9298ec9a-f0ec-4667-bfde-01c271e4cb6a",
 			"name": "delete mercados",
 			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 133,
+			"time": 108,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -504,7 +504,7 @@
 				}
 			},
 			"times": [
-				133
+				108
 			],
 			"allTests": [
 				{
@@ -514,7 +514,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 2231,
+	"totalTime": 1977,
 	"collection": {
 		"requests": [
 			{
