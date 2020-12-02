@@ -115,48 +115,6 @@
 			"response": []
 		},
 		{
-			"name": "post mercados  fallo",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "2c6e6c47-e4e0-40d3-8a6b-4ce7f806a50b",
-						"exec": [
-							"pm.test(\"Status code is 201\", function () {",
-							"    pm.response.to.have.status(201);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\"Region\": \"Asia_Pacific\",\r\n\"Country\": \"North_Corea\",\r\n\"Population\": 223.5,\r\n\"Internet_pop\": 161.5,\r\n\"Revenues\": 25.683\r\n}",
-					"options": {
-						"raw": {
-							"language": "text"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{BASE_URL}}/api/v1/mercados",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"mercados"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "post mercados /Region",
 			"event": [
 				{
