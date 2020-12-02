@@ -1,594 +1,744 @@
 {
-	"id": "e9f2ffb8-8830-411b-b0d1-d1dc6850ec58",
-	"name": "sos1920-dic-rnl",
-	"timestamp": "2020-12-01T12:16:06.458Z",
-	"collection_id": "f68fa3ac-6084-447f-95da-db8f52507c16",
-	"folder_id": 0,
-	"environment_id": "1fa0958e-563c-476e-bac3-ee6b9726ff66",
-	"totalPass": 20,
-	"totalFail": 1,
-	"results": [
+	"info": {
+		"_postman_id": "f68fa3ac-6084-447f-95da-db8f52507c16",
+		"name": "sos1920-dic-rnl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "2f4ca58a-a047-40da-8c78-54adf73ef82a",
 			"name": "get mercados loadInitialData",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/loadInitialData",
-			"time": 125,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				125
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "4c2c149c-508e-43e5-9e53-bb3209a1dd73",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/loadInitialData",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "15c8a952-b59a-4c2a-b249-f91b616b4c99",
 			"name": "get mercados",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 102,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				102
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "b3196351-0574-494c-873a-aa6d72f20bce",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "60233508-4d50-4e1a-857a-29fc17c26703",
 			"name": "post mercados",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 122,
-			"responseCode": {
-				"code": 201,
-				"name": "Created"
-			},
-			"tests": {
-				"Status code is 201": true
-			},
-			"testPassFailCounts": {
-				"Status code is 201": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				122
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 201": true
+					"listen": "test",
+					"script": {
+						"id": "4cabe1fd-0d4e-4e55-a397-52a5d5440a45",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Region\": \"Asia_Pacific\",\r\n\"Country\": \"North_Corea\",\r\n\"Population\": 223.5,\r\n\"Internet_pop\": 161.5,\r\n\"Revenues\": 25.683\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "a12dc5ba-8e60-4efc-933e-ab067d47309c",
 			"name": "post mercados  fallo",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 103,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status code is 201": false
-			},
-			"testPassFailCounts": {
-				"Status code is 201": {
-					"pass": 0,
-					"fail": 1
-				}
-			},
-			"times": [
-				103
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 201": false
+					"listen": "test",
+					"script": {
+						"id": "2c6e6c47-e4e0-40d3-8a6b-4ce7f806a50b",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Region\": \"Asia_Pacific\",\r\n\"Country\": \"North_Corea\",\r\n\"Population\": 223.5,\r\n\"Internet_pop\": 161.5,\r\n\"Revenues\": 25.683\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "41748b97-8e2b-46ba-bce6-c203f9727979",
 			"name": "post mercados /Region",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Region",
-			"time": 111,
-			"responseCode": {
-				"code": 405,
-				"name": "Method Not Allowed"
-			},
-			"tests": {
-				"Status code is 405": true
-			},
-			"testPassFailCounts": {
-				"Status code is 405": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				111
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 405": true
+					"listen": "test",
+					"script": {
+						"id": "3af24fff-8789-4836-badf-7b8660cb0e61",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Region\": \"Asia_Pacific\",\r\n\"Country\": \"North_Corea\",\r\n\"Population\": 223.5,\r\n\"Internet_pop\": 161.5,\r\n\"Revenues\": 25.683\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/Region",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"Region"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "75f8796b-6d75-4fd2-b500-1e0bc497d201",
 			"name": "post mercados /Region/Country",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Region/Country",
-			"time": 104,
-			"responseCode": {
-				"code": 405,
-				"name": "Method Not Allowed"
-			},
-			"tests": {
-				"Status code is 405": true
-			},
-			"testPassFailCounts": {
-				"Status code is 405": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				104
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 405": true
+					"listen": "test",
+					"script": {
+						"id": "ae50b946-b190-47e1-814b-351e42c7ba77",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Region\": \"Asia_Pacific\",\r\n\"Country\": \"North_Corea\",\r\n\"Population\": 223.5,\r\n\"Internet_pop\": 161.5,\r\n\"Revenues\": 25.683\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/Region/Country",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"Region",
+						"Country"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "a26f8683-698b-4812-90d1-3faaa2f91fa0",
 			"name": "get mercados/Region",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe",
-			"time": 107,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				107
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "cae13e23-1be9-46dd-bf33-6464f4d9e25f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/Europe",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"Europe"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "f5a252b4-1ff4-40a5-9b99-4821bd8c9c85",
 			"name": "get mercados/Region/Country",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe/Spain",
-			"time": 108,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				108
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "45e8e593-88a8-46c8-96a2-9a38c6b6a25f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/Europe/Spain",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"Europe",
+						"Spain"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "091d6255-c04c-4479-a004-65628b9139bb",
 			"name": "put mercados",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 108,
-			"responseCode": {
-				"code": 405,
-				"name": "Method Not Allowed"
-			},
-			"tests": {
-				"Status code is 405": true
-			},
-			"testPassFailCounts": {
-				"Status code is 405": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				108
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 405": true
+					"listen": "test",
+					"script": {
+						"id": "ce45e073-8c33-44d5-98fe-b4b319ee1bc6",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Region\": \"Asia_Pacific\",\r\n\"Country\": \"South_Korea\",\r\n\"Population\": 51.3,\r\n\"Internet_pop\": 48.2,\r\n\"Revenues\": 6.564\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "332b3b22-3a78-4d94-89bd-cc428098e7e5",
 			"name": "put mercados/Region/Country",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe/Spain",
-			"time": 127,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				127
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "ce5bbb6a-85a2-4f42-821e-ec34b337bebd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Region\": \"Europe\",\r\n\"Country\": \"Spain\",\r\n\"Population\": 51.3,\r\n\"Internet_pop\": 48.2,\r\n\"Revenues\": 6.564\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/Europe/Spain",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"Europe",
+						"Spain"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "81b6121a-af3d-4de2-8ff2-1081b458408c",
 			"name": "get busqueda 1",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?Region=Europe&Country=Spain",
-			"time": 111,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"There is 1 country": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"There is 1 country": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				111
-			],
-			"allTests": [
+			"event": [
 				{
-					"There is 1 country": true,
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "664ba7ef-f9ef-4946-9775-5cee00c536ef",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"var theElement = jsonData[0];\r",
+							"\r",
+							"pm.test(\"There is 1 country\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados?Region=Europe&Country=Spain",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					],
+					"query": [
+						{
+							"key": "Region",
+							"value": "Europe"
+						},
+						{
+							"key": "Country",
+							"value": "Spain"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "86d3dc36-f5a0-4cf5-9850-4b6a33148735",
 			"name": "get busqueda 2",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?Country=Spain",
-			"time": 104,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				104
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "76f3dfce-6c50-4127-8c9c-ffc8d2f8f4e7",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"var theElement = jsonData[0];\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados?Country=Spain",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					],
+					"query": [
+						{
+							"key": "Country",
+							"value": "Spain"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "0f4faa38-6fb8-4611-be06-771be0c334da",
 			"name": "get busqueda 3",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?Region=Europe&Country=Spain",
-			"time": 106,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"There is 1 country": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"There is 1 country": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				106
-			],
-			"allTests": [
+			"event": [
 				{
-					"There is 1 country": true,
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "e61cebaa-8322-4667-8abf-2636910893d6",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"There is 1 country\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados?Region=Europe&Country=Spain",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					],
+					"query": [
+						{
+							"key": "Region",
+							"value": "Europe"
+						},
+						{
+							"key": "Country",
+							"value": "Spain"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "695d6279-b401-4a1d-9f3b-b14c4e59a396",
 			"name": "get paginacion 1",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?offset=3&limit=7",
-			"time": 107,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				107
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "17f82c55-d0f3-41e7-9a49-4b55004388e1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados?offset=3&limit=7",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "3"
+						},
+						{
+							"key": "limit",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "a0162344-e40b-42be-ba02-17b2a8fac91c",
 			"name": "get paginacion 2",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados?offset=6&limit=2",
-			"time": 108,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"There is 2 country": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"There is 2 country": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				108
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true,
-					"There is 2 country": true
+					"listen": "test",
+					"script": {
+						"id": "675bb680-5ec1-428d-b03b-61cd2ae80751",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There is 2 country\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados?offset=6&limit=2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "6"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "78131955-d30c-4fc4-93b8-3c70393ebe3f",
 			"name": "delete mercados/Region/Country",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe/Spain",
-			"time": 107,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				107
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "2c5597c5-c8e2-4b8f-83f1-9f07ce54ffec",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/Europe/Spain",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"Europe",
+						"Spain"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "321e2910-b21a-432a-a7f9-ce80d1298aed",
 			"name": "delete mercados/Region",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados/Europe",
-			"time": 109,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				109
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "5d054353-832a-47d6-9dca-0589117608a3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados/Europe",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados",
+						"Europe"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "9298ec9a-f0ec-4667-bfde-01c271e4cb6a",
 			"name": "delete mercados",
-			"url": "https://sos1920-dic-rnl.herokuapp.com/api/v1/mercados",
-			"time": 108,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				108
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"id": "cd89b2d5-89a6-4353-9d3c-dc03ec567498",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/mercados",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mercados"
+					]
+				}
+			},
+			"response": []
 		}
 	],
-	"count": 1,
-	"totalTime": 1977,
-	"collection": {
-		"requests": [
-			{
-				"id": "2f4ca58a-a047-40da-8c78-54adf73ef82a",
-				"method": "GET"
-			},
-			{
-				"id": "15c8a952-b59a-4c2a-b249-f91b616b4c99",
-				"method": "GET"
-			},
-			{
-				"id": "60233508-4d50-4e1a-857a-29fc17c26703",
-				"method": "POST"
-			},
-			{
-				"id": "a12dc5ba-8e60-4efc-933e-ab067d47309c",
-				"method": "POST"
-			},
-			{
-				"id": "41748b97-8e2b-46ba-bce6-c203f9727979",
-				"method": "POST"
-			},
-			{
-				"id": "75f8796b-6d75-4fd2-b500-1e0bc497d201",
-				"method": "POST"
-			},
-			{
-				"id": "a26f8683-698b-4812-90d1-3faaa2f91fa0",
-				"method": "GET"
-			},
-			{
-				"id": "f5a252b4-1ff4-40a5-9b99-4821bd8c9c85",
-				"method": "GET"
-			},
-			{
-				"id": "091d6255-c04c-4479-a004-65628b9139bb",
-				"method": "PUT"
-			},
-			{
-				"id": "332b3b22-3a78-4d94-89bd-cc428098e7e5",
-				"method": "PUT"
-			},
-			{
-				"id": "81b6121a-af3d-4de2-8ff2-1081b458408c",
-				"method": "GET"
-			},
-			{
-				"id": "86d3dc36-f5a0-4cf5-9850-4b6a33148735",
-				"method": "GET"
-			},
-			{
-				"id": "0f4faa38-6fb8-4611-be06-771be0c334da",
-				"method": "GET"
-			},
-			{
-				"id": "695d6279-b401-4a1d-9f3b-b14c4e59a396",
-				"method": "GET"
-			},
-			{
-				"id": "a0162344-e40b-42be-ba02-17b2a8fac91c",
-				"method": "GET"
-			},
-			{
-				"id": "78131955-d30c-4fc4-93b8-3c70393ebe3f",
-				"method": "DELETE"
-			},
-			{
-				"id": "321e2910-b21a-432a-a7f9-ce80d1298aed",
-				"method": "DELETE"
-			},
-			{
-				"id": "9298ec9a-f0ec-4667-bfde-01c271e4cb6a",
-				"method": "DELETE"
-			}
-		]
-	}
+	"protocolProfileBehavior": {}
 }

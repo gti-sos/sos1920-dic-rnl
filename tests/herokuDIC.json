@@ -1,0 +1,14 @@
+{
+	"id": "1fa0958e-563c-476e-bac3-ee6b9726ff66",
+	"name": "heroku",
+	"values": [
+		{
+			"key": "BASE_URL",
+			"value": "https://sos1920-dic-rnl.herokuapp.com",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-12-02T17:44:12.806Z",
+	"_postman_exported_using": "Postman/7.36.0"
+}

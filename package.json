@@ -1,11 +1,11 @@
 {
-  "name": "sos1920-sep-rnl",
+  "name": "sos1920-dic-rnl",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "npx newman run tests/mercados_TEST.json",
+    "test": "npx newman run tests/mercados_TEST.json -e tests/HerokuDIC.json",
     "dev": "rollup -c -w",
     "start": "node index"
   },
@@ -27,6 +27,7 @@
     "express": "^4.17.1",
     "highcharts": "^8.2.0",
     "nedb": "^1.8.0",
+    "newman": "^5.2.1",
     "request": "^2.88.2",
     "svelte-spa-router": "^2.1.0",
     "sveltestrap": "^3.3.3"
