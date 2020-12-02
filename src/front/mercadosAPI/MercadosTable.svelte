@@ -101,7 +101,6 @@
 		const res = await fetch("/api/v1/mercados/loadInitialData")
 		responseAlert("Se han recuperado los valores iniciales de la tabla de mercados")
 		location.reload();
-
 	}
 
 	async function insertMercado() {
