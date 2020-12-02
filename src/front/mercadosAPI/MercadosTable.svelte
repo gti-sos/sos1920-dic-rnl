@@ -31,7 +31,7 @@
 	let currentCountry = "-";
 	let currentRegion = "-";
 
-	let numberOfElements = 7;
+	let numberOfElements = 0;
 	let offset = 0;
 	let currentPage = 1;
 	let moreData = true;
