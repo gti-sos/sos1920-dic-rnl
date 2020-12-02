@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "npx newman run tests/mercados_TEST.json -e tests/HerokuDIC.json",
+    "test": "npx newman run tests/mercados_TEST.json -e tests/herokuDIC.json",
     "dev": "rollup -c -w",
     "start": "node index"
   },
