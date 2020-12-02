@@ -64,8 +64,6 @@
 		}
 	}
 
-
-
 	async function getMercado() {
 
 		console.log("Recibiendo mercados...");
