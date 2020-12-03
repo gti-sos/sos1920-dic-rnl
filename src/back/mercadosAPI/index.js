@@ -189,6 +189,7 @@ module.exports = function (app) {
 			delete req.query.limit;
 		}
 
+		
 
 		db.find(par).skip(offset).limit(limit).exec((err, mercados) => {
 			if(mercados.length==0&&Object.keys(par).length>1){
@@ -196,7 +197,9 @@ module.exports = function (app) {
 			}else{
 			deleteIDs(mercados);
 			res.send(JSON.stringify(mercados, null, 2));
-
+			//for(var i = 0;i<mercados.length;i++){
+			//	console.log("Data sent:" + JSON.stringify(mercados[i].Country));
+			//}
 			console.log("Data sent: " + JSON.stringify(mercados, null, 2));
 			}
 		});
