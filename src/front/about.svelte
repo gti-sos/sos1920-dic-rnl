@@ -15,7 +15,8 @@
     <h3>Video de la API: Mercados</h3>
     <li><a href="https://youtu.be/Sfa_tt1mhAk" rel="nofollow">Video Presentación API SOS1920-DIC-RNL</a></li>
     <p></p>
-    <h5>Para entrar a mi repositorio de github haz click <a href="https://github.com/Jolaru21">aqui</a></h5>
+    <h5>Esta es mi cuenta de Github <a href="https://github.com/Jolaru21">pulsa aqui</a></h5>
+    <h5>Y este mi repositorio del trabajo<a href="https://github.com/gti-sos/sos1920-dic-rnl"> pulsa aqui</a></h5>
     <p></p>
     <button type="button" onclick="window.location.href='#/'"> ATRAS</button>
 </main>
